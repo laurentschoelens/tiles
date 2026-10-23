@@ -44,7 +44,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.2-beta-4</version>
+          <version>3.8.0</version>
         <configuration>
           <descriptors>
             <descriptor>src/main/assembly/bin.xml</descriptor>
@@ -67,7 +67,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>3.1.0</version>
+            <version>3.8.0</version>
             <executions>
               <execution>
                 <id>make-assembly</id>
@@ -96,7 +96,7 @@
           <plugin>
             <groupId>net.nicoulaj.maven.plugins</groupId>
             <artifactId>checksum-maven-plugin</artifactId>
-            <version>1.6</version>
+            <version>1.11</version>
             <executions>
               <execution>
                 <goals>
