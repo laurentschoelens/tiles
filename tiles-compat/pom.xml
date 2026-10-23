@@ -36,7 +36,7 @@
   <description>Tiles compatibility library, to help migration from Struts-Tiles.</description>
 
   <properties>
-      <tiles.osgi.symbolicName>org.apache.tiles.compat</tiles.osgi.symbolicName>
+      <tiles.osgi.symbolicName>io.github.laurentschoelens.tiles.compat</tiles.osgi.symbolicName>
   </properties>
 
   <build>

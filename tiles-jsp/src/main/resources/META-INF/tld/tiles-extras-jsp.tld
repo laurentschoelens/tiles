@@ -44,8 +44,8 @@
       ]]>
       </description>
       <name>useAttribute</name>
-      <tag-class>org.apache.tiles.jsp.taglib.UseAttributeTag</tag-class>
-      <tei-class>org.apache.tiles.jsp.taglib.UseAttributeTag$Tei</tei-class>
+      <tag-class>io.github.laurentschoelens.tiles.jsp.taglib.UseAttributeTag</tag-class>
+      <tei-class>io.github.laurentschoelens.tiles.jsp.taglib.UseAttributeTag$Tei</tei-class>
       <body-content>empty</body-content>
       <attribute>
          <description>

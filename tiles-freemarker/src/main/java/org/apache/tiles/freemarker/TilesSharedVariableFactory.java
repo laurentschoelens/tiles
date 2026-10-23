@@ -18,10 +18,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.tiles.freemarker;
+package io.github.laurentschoelens.tiles.freemarker;
 
-import org.apache.tiles.freemarker.template.TilesFMModelRepository;
-import org.apache.tiles.request.freemarker.servlet.SharedVariableFactory;
+import io.github.laurentschoelens.tiles.freemarker.template.TilesFMModelRepository;
+import io.github.laurentschoelens.tiles.request.freemarker.servlet.SharedVariableFactory;
 
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.BeansWrapper;

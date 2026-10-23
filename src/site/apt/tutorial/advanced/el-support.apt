@@ -46,7 +46,7 @@ Expression Language support
 
 ------------------------------------
   <definition name="test.composite.el.definition" templateExpression="${layout}"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="preparer.test.io.github.laurentschoelens.tiles.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/header.jsp"/>
       <put-attribute name="body"   expression="${requestScope.body}"/>
@@ -65,7 +65,7 @@ Expression Language support
 
 ------------------------------------
   <definition name="test.composite.mvel.definition" templateExpression="MVEL:layout"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="preparer.test.io.github.laurentschoelens.tiles.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/header.jsp"/>
       <put-attribute name="body"   expression="MVEL:requestScope.body"/>
@@ -84,7 +84,7 @@ Expression Language support
 
 ------------------------------------
   <definition name="test.composite.mvel.definition" templateExpression="OGNL:layout"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="preparer.test.io.github.laurentschoelens.tiles.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/header.jsp"/>
       <put-attribute name="body"   expression="OGNL:requestScope.body"/>

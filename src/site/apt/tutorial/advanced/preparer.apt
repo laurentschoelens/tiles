@@ -41,11 +41,11 @@ View Preparers
 ----------------------------------------------
 package my.package;
 
-import org.apache.tiles.preparer.PreparerException;
-import org.apache.tiles.preparer.ViewPreparer;
-import org.apache.tiles.request.Request;
-import org.apache.tiles.AttributeContext;
-import org.apache.tiles.Attribute;
+import preparer.io.github.laurentschoelens.tiles.PreparerException;
+import preparer.io.github.laurentschoelens.tiles.ViewPreparer;
+import io.github.laurentschoelens.tiles.request.Request;
+import io.github.laurentschoelens.tiles.AttributeContext;
+import io.github.laurentschoelens.tiles.Attribute;
 
 public class TestViewPreparer implements ViewPreparer {
 
@@ -64,7 +64,7 @@ public class TestViewPreparer implements ViewPreparer {
   <<<preparer>>> attribute of the <<<\<definition\>>>> element:
 
 ----------------------------------------------
-<definition name="preparer.definition" preparer="org.apache.tiles.test.preparer.TestViewPreparer">
+<definition name="preparer.definition" preparer="preparer.test.io.github.laurentschoelens.tiles.TestViewPreparer">
   <put-attribute name="foo" value="/bar/foo.jsp" />
 </definition>
 ----------------------------------------------

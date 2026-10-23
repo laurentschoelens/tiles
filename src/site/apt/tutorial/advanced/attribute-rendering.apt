@@ -63,14 +63,14 @@ Customize attribute rendering
 
   If you don't want to use class names as attribute types, you can use new
   "named" custom attribute renderers. You can do it by overriding the
-  {{{../../apidocs/org/apache/tiles/factory/BasicTilesContainerFactory.html#method_summary}registerAttributeRenderers}}
+  {{{../../apidocs/io/github/laurentschoelens/tiles/factory/BasicTilesContainerFactory.html#method_summary}registerAttributeRenderers}}
   of <<<BasicTilesContainerFactory>>> if you are using Java-based configuration.
 
 * Custom default attribute renderer
 
   The behaviour of Tiles when the type of an attribute is not specified can also be
   customized. You can do it by overriding the
-  {{{../../apidocs/org/apache/tiles/factory/BasicTilesContainerFactory.html#method_summary}createDefaultAttributeRenderer}}
+  {{{../../apidocs/io/github/laurentschoelens/tiles/factory/BasicTilesContainerFactory.html#method_summary}createDefaultAttributeRenderer}}
   of <<<BasicTilesContainerFactory>>> if you are using Java-based configuration.
 
 * Custom attribute renderer factory
@@ -78,5 +78,5 @@ Customize attribute rendering
   The attribute renderer factory can be completely customized, leaving to you
   the maximum freedom of choice in the attribute renderer creation. You can
   specify the factory's implementation by overriding the
-  {{{../../apidocs/org/apache/tiles/factory/BasicTilesContainerFactory.html#method_summary}createRendererFactory}}
+  {{{../../apidocs/io/github/laurentschoelens/tiles/factory/BasicTilesContainerFactory.html#method_summary}createRendererFactory}}
   of <<<BasicTilesContainerFactory>>> if you are using Java-based configuration.

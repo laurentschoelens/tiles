@@ -209,7 +209,7 @@
     <a href="freemarker/testinsertdefinition_mvel.ftl">FreeMarker: Test Insert Configured Definition with MVEL</a><br/>
     <a href="freemarker/testinsertdefinition_ognl.ftl">FreeMarker: Test Insert Configured Definition with OGNL</a><br/>
     <a href="freemarker/testinsertdefinition_regexp.ftl">FreeMarker: Test Insert Configured Definition with Regular Expression</a><br/>
-    <a href="org/apache/tiles/test/alt/freemarker/testinsertdefinition_alt.ftl">FreeMarker: Test Insert Configured Definition in Module</a><br/>
+    <a href="io/github/laurentschoelens/tiles/test/alt/freemarker/testinsertdefinition_alt.ftl">FreeMarker: Test Insert Configured Definition in Module</a><br/>
 
     <h2>Features in Tiles 3.0.x</h2>
 
@@ -301,7 +301,7 @@
     <a href="velocity/testinsertdefinition_mvel.vm">Velocity: Test Insert Configured Definition with MVEL</a><br/>
     <a href="velocity/testinsertdefinition_ognl.vm">Velocity: Test Insert Configured Definition with OGNL</a><br/>
     <a href="velocity/testinsertdefinition_regexp.vm">Velocity: Test Insert Configured Definition with Regular Expression</a><br/>
-    <a href="org/apache/tiles/test/alt/velocity/testinsertdefinition_alt.vm">Velocity: Test Insert Configured Definition in Module</a><br/>
+    <a href="io/github/laurentschoelens/tiles/test/alt/velocity/testinsertdefinition_alt.vm">Velocity: Test Insert Configured Definition in Module</a><br/>
 
     <h2>Features in Tiles 3.0.x</h2>
 

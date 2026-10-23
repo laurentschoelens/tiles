@@ -50,7 +50,7 @@ Configuring Tiles in your web application
 
 -------------------------------
 <listener>
-    <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+    <listener-class>complete.extras.io.github.laurentschoelens.tiles.CompleteAutoloadTilesListener</listener-class>
 </listener>
 -------------------------------
 
@@ -62,7 +62,7 @@ Configuring Tiles in your web application
 -------------------------------
 <servlet>
     <servlet-name>Tiles Dispatch Servlet</servlet-name>
-    <servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
+    <servlet-class>util.web.io.github.laurentschoelens.tiles.TilesDispatchServlet</servlet-class>
 </servlet>
 <servlet-mapping>
     <servlet-name>Tiles Dispatch Servlet</servlet-name>

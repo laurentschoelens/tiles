@@ -19,7 +19,7 @@
  * under the License.
  */
 
-package org.apache.tiles.velocity.template;
+package io.github.laurentschoelens.tiles.velocity.template;
 
 import static org.easymock.EasyMock.eq;
 import static org.easymock.EasyMock.expect;
@@ -38,14 +38,14 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tiles.Attribute;
-import org.apache.tiles.AttributeContext;
-import org.apache.tiles.Expression;
-import org.apache.tiles.TilesContainer;
-import org.apache.tiles.access.TilesAccess;
-import org.apache.tiles.request.ApplicationAccess;
-import org.apache.tiles.request.ApplicationContext;
-import org.apache.tiles.request.velocity.VelocityRequest;
+import io.github.laurentschoelens.tiles.Attribute;
+import io.github.laurentschoelens.tiles.AttributeContext;
+import io.github.laurentschoelens.tiles.Expression;
+import io.github.laurentschoelens.tiles.TilesContainer;
+import io.github.laurentschoelens.tiles.access.TilesAccess;
+import io.github.laurentschoelens.tiles.request.ApplicationAccess;
+import io.github.laurentschoelens.tiles.request.ApplicationContext;
+import io.github.laurentschoelens.tiles.request.velocity.VelocityRequest;
 import org.apache.velocity.context.Context;
 import org.apache.velocity.context.InternalContextAdapter;
 import org.apache.velocity.runtime.Renderable;
@@ -100,7 +100,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool#get(java.lang.String)}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool#get(java.lang.String)}.
      */
     @Test
     public void testGetAttribute() {
@@ -130,7 +130,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool#createAttribute()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool#createAttribute()}.
      */
     @Test
     public void testCreateAttribute() {
@@ -144,8 +144,8 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool
-     * #clone(org.apache.tiles.Attribute)}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool
+     * #clone(io.github.laurentschoelens.tiles.Attribute)}.
      */
     @Test
     public void testCloneAttribute() {
@@ -160,7 +160,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool
      * #createTemplateAttribute(java.lang.String)}.
      */
     @Test
@@ -174,8 +174,8 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool
-     * #render(org.apache.tiles.Attribute)}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool
+     * #render(io.github.laurentschoelens.tiles.Attribute)}.
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -207,7 +207,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool
      * #renderDefinition(java.lang.String)}.
      * @throws IOException If something goes wrong.
      */
@@ -239,7 +239,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool#renderAttributeContext()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool#renderAttributeContext()}.
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -270,7 +270,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool#startAttributeContext()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool#startAttributeContext()}.
      */
     @Test
     public void testStartAttributeContext() {
@@ -299,7 +299,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool#endAttributeContext()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool#endAttributeContext()}.
      */
     @Test
     public void testEndAttributeContext() {
@@ -327,7 +327,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool#getAttributeContext()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool#getAttributeContext()}.
      */
     @Test
     public void testGetAttributeContext() {
@@ -356,7 +356,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool
      * #setCurrentContainer(java.lang.String)}.
      */
     @Test
@@ -383,7 +383,7 @@ public class VelocityStyleTilesToolTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.VelocityStyleTilesTool#toString()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.VelocityStyleTilesTool#toString()}.
      */
     @Test
     public void testToString() {

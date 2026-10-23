@@ -129,7 +129,7 @@
                     <mkdir dir="${project.build.directory}/assemblies" />
                     <echo message="Here I am!" />
                     <copy todir="${project.build.directory}/assemblies">
-                      <fileset dir="${settings.localRepository}/org/apache/tiles/tiles-assembly/${project.version}">
+                      <fileset dir="${settings.localRepository}/io/github/laurentschoelens/tiles/tiles-assembly/${project.version}">
                         <include name="tiles-assembly-${project.version}-*.zip*" />
                         <include name="tiles-assembly-${project.version}-*.tar.gz*" />
                         <exclude name="tiles-assembly-${project.version}-source-release.*" />

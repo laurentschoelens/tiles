@@ -10,9 +10,9 @@ Implementation-Title: Tiles - Test webapp alternate configuration
 Implementation-Version: 2.2.1-SNAPSHOT
 Implementation-Vendor-Id: org.apache
 Implementation-Vendor: Apache Software Foundation
-Tiles-Initializer: org.apache.tiles.test.alt.TestAlternateTilesInitial
+Tiles-Initializer: io.github.laurentschoelens.tiles.test.alt.TestAlternateTilesInitial
  izer
-Export-Package: org.apache.tiles.test.alt;version="2.2.1.SNAPSHOT"
+Export-Package: io.github.laurentschoelens.tiles.test.alt;version="2.2.1.SNAPSHOT"
 Tool: Bnd-0.0.311
 Bundle-Name: Tiles - Test webapp alternate configuration
 Bundle-Vendor: Apache Software Foundation
@@ -21,11 +21,11 @@ Bnd-LastModified: 1254151613654
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Bundle-Description: Alternate configuration for the test webapp.
-Import-Package: org.apache.tiles,org.apache.tiles.context,org.apache.t
- iles.definition,org.apache.tiles.definition.dao,org.apache.tiles.fact
- ory,org.apache.tiles.locale,org.apache.tiles.startup,org.apache.tiles
- .test.alt;version="2.2",org.apache.tiles.test.factory
-Bundle-SymbolicName: org.apache.tiles-test-alt
+Import-Package: io.github.laurentschoelens.tiles,io.github.laurentschoelens.tiles.context,org.apache.t
+ iles.definition,io.github.laurentschoelens.tiles.definition.dao,io.github.laurentschoelens.tiles.fact
+ ory,io.github.laurentschoelens.tiles.locale,io.github.laurentschoelens.tiles.startup,io.github.laurentschoelens.tiles
+ .test.alt;version="2.2",io.github.laurentschoelens.tiles.test.factory
+Bundle-SymbolicName: io.github.laurentschoelens.tiles-test-alt
 Bundle-DocURL: http://tiles.apache.org/framework/tiles-test-pom/tiles-
  test-alt
 

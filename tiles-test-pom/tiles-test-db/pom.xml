@@ -60,7 +60,7 @@
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
             </manifest>
             <manifestEntries>
-              <Tiles-Initializer>org.apache.tiles.test.db.TestDbTilesInitializer</Tiles-Initializer>
+              <Tiles-Initializer>io.github.laurentschoelens.tiles.test.db.TestDbTilesInitializer</Tiles-Initializer>
             </manifestEntries>
           </archive>
         </configuration>

@@ -36,7 +36,7 @@
             <outputDirectory>/lib/optional</outputDirectory>
             <outputFileNameMapping>${artifact.artifactId}-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
             <excludes>
-                <exclude>org.apache.tiles:*</exclude>
+                <exclude>io.github.laurentschoelens.tiles:*</exclude>
                 <exclude>org.slf4j:slf4j-api</exclude>
                 <exclude>org.slf4j:jcl-over-slf4j</exclude>
                 <exclude>commons-beanutils:commons-beanutils</exclude>
@@ -47,10 +47,10 @@
             <outputDirectory>/</outputDirectory>
             <outputFileNameMapping>${artifact.artifactId}-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
             <includes>
-                <include>org.apache.tiles:*</include>
+                <include>io.github.laurentschoelens.tiles:*</include>
             </includes>
             <excludes>
-                <exclude>org.apache.tiles:tiles-test</exclude>
+                <exclude>io.github.laurentschoelens.tiles:tiles-test</exclude>
             </excludes>
         </dependencySet>
     </dependencySets>

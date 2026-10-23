@@ -19,9 +19,9 @@
  * under the License.
  */
 
-package org.apache.tiles.velocity;
+package io.github.laurentschoelens.tiles.velocity;
 
-import org.apache.tiles.TilesException;
+import io.github.laurentschoelens.tiles.TilesException;
 
 /**
  * Exception connected to the usage of Velocity and Tiles.

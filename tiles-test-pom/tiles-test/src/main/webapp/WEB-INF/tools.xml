@@ -19,7 +19,7 @@
 -->
 <tools>
   <toolbox scope="request">
-    <tool key="exc" class="org.apache.tiles.test.velocity.ExceptionTool"/>
+    <tool key="exc" class="io.github.laurentschoelens.tiles.test.velocity.ExceptionTool"/>
     <tool class="org.apache.velocity.tools.generic.ContextTool"/>
   </toolbox>
   <toolbox scope="application">

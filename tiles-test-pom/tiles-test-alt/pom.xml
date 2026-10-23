@@ -48,7 +48,7 @@
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
             </manifest>
             <manifestEntries>
-              <Tiles-Initializer>org.apache.tiles.test.alt.TestAlternateTilesInitializer</Tiles-Initializer>
+              <Tiles-Initializer>io.github.laurentschoelens.tiles.test.alt.TestAlternateTilesInitializer</Tiles-Initializer>
             </manifestEntries>
           </archive>
         </configuration>

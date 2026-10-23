@@ -19,7 +19,7 @@
  * under the License.
  */
 
-package org.apache.tiles.velocity.template;
+package io.github.laurentschoelens.tiles.velocity.template;
 
 import static org.junit.Assert.*;
 import static org.easymock.EasyMock.*;
@@ -43,7 +43,7 @@ import org.junit.Test;
 public class AbstractDefaultToStringRenderableTest {
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.AbstractDefaultToStringRenderable
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.AbstractDefaultToStringRenderable
      * #AbstractDefaultToStringRenderable(org.apache.velocity.context.Context,
      * java.util.Map, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpServletRequest)}.
      */
@@ -65,7 +65,7 @@ public class AbstractDefaultToStringRenderableTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.velocity.template.AbstractDefaultToStringRenderable#toString()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.velocity.template.AbstractDefaultToStringRenderable#toString()}.
      */
     @Test
     public void testToString() {

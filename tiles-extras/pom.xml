@@ -37,7 +37,7 @@
   </description>
 
   <properties>
-  	<tiles.osgi.symbolicName>org.apache.tiles.extras</tiles.osgi.symbolicName>
+  	<tiles.osgi.symbolicName>io.github.laurentschoelens.tiles.extras</tiles.osgi.symbolicName>
       <!-- decrease this whenever possible -->
       <checkstyle.maxAllowedViolations>21</checkstyle.maxAllowedViolations>
   </properties>

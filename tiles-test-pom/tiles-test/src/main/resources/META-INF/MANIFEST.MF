@@ -8,7 +8,7 @@ Specification-Version: 2.2.1-SNAPSHOT
 Specification-Vendor: Apache Software Foundation
 Implementation-Title: Tiles - Apps - Test
 Implementation-Version: 2.2.1-SNAPSHOT
-Implementation-Vendor-Id: org.apache.tiles
+Implementation-Vendor-Id: io.github.laurentschoelens.tiles
 Implementation-Vendor: Apache Software Foundation
-Tiles-Initializer: org.apache.tiles.test.init.TestTilesInitializer
+Tiles-Initializer: init.test.io.github.laurentschoelens.tiles.TestTilesInitializer
 

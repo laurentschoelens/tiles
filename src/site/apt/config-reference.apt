@@ -24,9 +24,9 @@
 Configuring Tiles
 
   Configuring Tiles means creating the following objects:
-  * an instance of org.apache.tiles.request.ApplicationContext,
-  * an instance of org.apache.tiles.TilesContainer.
-  Usually these are created by an instance of org.apache.tiles.startup.TilesInitializer.
+  * an instance of io.github.laurentschoelens.tiles.request.ApplicationContext,
+  * an instance of io.github.laurentschoelens.tiles.TilesContainer.
+  Usually these are created by an instance of startup.io.github.laurentschoelens.tiles.TilesInitializer.
 
   Several MVC frameworks (struts, spring, shale) provide an easy integration with tiles.
 
@@ -37,7 +37,7 @@ Configuring Tiles
   its use in a Servlet-based web application will be the most frequent use case.
 
   To start Tiles you can extend
-  {{{./apidocs/org/apache/tiles/web/startup/AbstractTilesListener.html}AbstractTilesListener}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/web/startup/AbstractTilesListener.html}AbstractTilesListener}}
   and implement the <<<createTilesInitializer>>> method:
 
 --------------------------
@@ -46,7 +46,7 @@ protected TilesInitializer createTilesInitializer() {
 }
 --------------------------
 
-  You can use {{{./apidocs/org/apache/tiles/startup/AbstractTilesInitializer.html}AbstractTilesInitializer}}
+  You can use {{{./apidocs/io/github/laurentschoelens/tiles/startup/AbstractTilesInitializer.html}AbstractTilesInitializer}}
   as a basis.
 
   Then you can start Tiles by specifing it in your <<<web.xml>>> file:
@@ -67,9 +67,9 @@ protected TilesInitializer createTilesInitializer() {
 
 * Simple configuration
 
-  {{{./apidocs/org/apache/tiles/web/startup/simple/SimpleTilesListener.html}SimpleTilesListener}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/web/startup/simple/SimpleTilesListener.html}SimpleTilesListener}}
   or
-  {{{./apidocs/org/apache/tiles/startup/DefaultTilesInitializer.html}DefaultTilesInitializer}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/startup/DefaultTilesInitializer.html}DefaultTilesInitializer}}
   are the "simple" way to load Tiles. This was the default for Tiles 2.1 and prior versions.
 
   This configuration has the following characteristics:
@@ -85,9 +85,9 @@ protected TilesInitializer createTilesInitializer() {
 * Feature-Complete configuration
 
   It is possible to startup Tiles turning all the new features on by using
-  {{{./apidocs/org/apache/tiles/extras/complete/CompleteAutoloadTilesListener.html}CompleteAutoloadTilesListener}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/extras/complete/CompleteAutoloadTilesListener.html}CompleteAutoloadTilesListener}}
   or
-  {{{./apidocs/org/apache/tiles/extras/complete/CompleteAutoloadTilesInitializer.html}CompleteAutoloadTilesInitializer}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/extras/complete/CompleteAutoloadTilesInitializer.html}CompleteAutoloadTilesInitializer}}
   available in the <<<tiles-extras>>> module. This initializer turns on:
 
   * {{{./tutorial/integration/freemarker.html}Freemarker}} and {{{./tutorial/integration/velocity.html}Velocity}} support;
@@ -108,9 +108,9 @@ protected TilesInitializer createTilesInitializer() {
   modules of independent Tiles configuration.
 
   To turn it on, you need to use
-  {{{./apidocs/org/apache/tiles/extras/module/ModularTilesListener.html}ModularTilesListener}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/extras/module/ModularTilesListener.html}ModularTilesListener}}
   or
-  {{{./apidocs/org/apache/tiles/extras/module/ModularTilesInitializer.html}ModularTilesInitializer}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/extras/module/ModularTilesInitializer.html}ModularTilesInitializer}}
   available in the <<<tiles-extras>>> module.
 
   Add in your manifest file, under the <<<META-INF/MANIFEST.MF>>>
@@ -119,7 +119,7 @@ protected TilesInitializer createTilesInitializer() {
 
 ---------------------------
 Manifest-Version: 1.0
-Tiles-Initializer: org.apache.tiles.extras.module.ModularTilesInitializerTest$TilesInitializer1
+Tiles-Initializer: io.github.laurentschoelens.tiles.extras.module.ModularTilesInitializerTest$TilesInitializer1
 ---------------------------
 
   Every initializer that is found will be loaded and "initialized", and destroyed when the
@@ -133,12 +133,12 @@ Configuring Tiles internals
 * Custom {ApplicationContext}
 
   Custom ApplicationContext can be provided by implementing
-  {{{/tiles-request/apidocs/org/apache/tiles/request/ApplicationContext.html}ApplicationContext}}.
+  {{{/tiles-request/apidocs/io/github/laurentschoelens/tiles/request/ApplicationContext.html}ApplicationContext}}.
   If you are under a servlet environment, you can override
-  {{{/tiles-request/apidocs/org/apache/tiles/request/servlet/ServletApplicationContext.html}ServletApplicationContext}}.
+  {{{/tiles-request/apidocs/io/github/laurentschoelens/tiles/request/servlet/ServletApplicationContext.html}ServletApplicationContext}}.
 
   To use it, you need to override the
-  {{{./apidocs/org/apache/tiles/startup/AbstractTilesInitializer.html#method_summary}createTilesApplicationContext}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/startup/AbstractTilesInitializer.html#method_summary}createTilesApplicationContext}}
   method of AbstractTilesInitializer.
 
   The reason to use a custom Tiles application context could be:
@@ -151,13 +151,13 @@ Configuring Tiles internals
 
   Custom Tiles containers can be created by custom Tiles container factories.
   You have to create a class that extends
-  {{{./apidocs/org/apache/tiles/factory/AbstractTilesContainerFactory.html}AbstractTilesContainerFactory}}.
-  In particular you can use {{{./apidocs/org/apache/tiles/factory/BasicTilesContainerFactory.html}BasicTilesContainerFactory}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/factory/AbstractTilesContainerFactory.html}AbstractTilesContainerFactory}}.
+  In particular you can use {{{./apidocs/io/github/laurentschoelens/tiles/factory/BasicTilesContainerFactory.html}BasicTilesContainerFactory}}
   as a basis for your extended configuration. <<<BasicTilesContainerFactory>>>
   is the configuration that replicates the default configuration of Tiles,
   i.e. the one that assumes when no additional parameter is provided.
   The
-  {{{./apidocs/org/apache/tiles/factory/BasicTilesContainerFactory.html}Javadoc documentation of BasicTilesContainerFactory}}
+  {{{./apidocs/io/github/laurentschoelens/tiles/factory/BasicTilesContainerFactory.html}Javadoc documentation of BasicTilesContainerFactory}}
   documents all the methods that can be overridden to use your own
   configuration.
   
@@ -175,32 +175,32 @@ Configuring Tiles internals
   
 ** Custom {LocaleResolver}
   
-  The default implementation is {{{./apidocs/org/apache/tiles/locale/impl/DefaultLocaleResolver.html}DefaultLocaleResolver}}.
+  The default implementation is {{{./apidocs/io/github/laurentschoelens/tiles/locale/impl/DefaultLocaleResolver.html}DefaultLocaleResolver}}.
 
 ** Custom {DefinitionDAO}
 
-  The default implementation is {{{./apidocs/org/apache/tiles/definition/dao/ResolvingLocaleUrlDefinitionDAO.html}ResolvingLocaleUrlDefinitionDAO}}.
+  The default implementation is {{{./apidocs/io/github/laurentschoelens/tiles/definition/dao/ResolvingLocaleUrlDefinitionDAO.html}ResolvingLocaleUrlDefinitionDAO}}.
   
 ** Custom {AttributeEvaluatorFactory}
 
-  The default implementation is {{{./apidocs/org/apache/tiles/evaluator/BasicAttributeEvaluatorFactory.html}BasicAttributeEvaluatorFactory}}.
+  The default implementation is {{{./apidocs/io/github/laurentschoelens/tiles/evaluator/BasicAttributeEvaluatorFactory.html}BasicAttributeEvaluatorFactory}}.
   
   It can be used with a number of AttributeEvaluators like:
   
-  * the {{{./apidocs/org/apache/tiles/evaluator/impl/DirectAttributeEvaluator.html}DirectAttributeEvaluator}},
+  * the {{{./apidocs/io/github/laurentschoelens/tiles/evaluator/impl/DirectAttributeEvaluator.html}DirectAttributeEvaluator}},
 
-  * the {{{./apidocs/org/apache/tiles/el/ELAttributeEvaluator.html}ELAttributeEvaluator}},
+  * the {{{./apidocs/io/github/laurentschoelens/tiles/el/ELAttributeEvaluator.html}ELAttributeEvaluator}},
 
-  * the {{{./apidocs/org/apache/tiles/mvel/MVELAttributeEvaluator.html}MVELAttributeEvaluator}},
+  * the {{{./apidocs/io/github/laurentschoelens/tiles/mvel/MVELAttributeEvaluator.html}MVELAttributeEvaluator}},
 
-  * the {{{./apidocs/org/apache/tiles/ognl/OGNLAttributeEvaluator.html}OGNLAttributeEvaluator}}.
+  * the {{{./apidocs/io/github/laurentschoelens/tiles/ognl/OGNLAttributeEvaluator.html}OGNLAttributeEvaluator}}.
   
-  Please see {{{./xref/org/apache/tiles/extras/complete/CompleteAutoloadTilesContainerFactory.html}CompleteAutoloadTilesContainerFactory}}
+  Please see {{{./xref/io/github/laurentschoelens/tiles/extras/complete/CompleteAutoloadTilesContainerFactory.html}CompleteAutoloadTilesContainerFactory}}
   for an example of how to configure those.
 
 ** Custom {PreparerFactory}
 
-  The default implementation is {{{./apidocs/org/apache/tiles/preparer/factory/BasicPreparerFactory.html}BasicPreparerFactory}}.
+  The default implementation is {{{./apidocs/io/github/laurentschoelens/tiles/preparer/factory/BasicPreparerFactory.html}BasicPreparerFactory}}.
 
   Currently the preparer is associated to a definition using its class name.
   There will be only <<one>> instance per unique class name. If you want to
@@ -212,7 +212,7 @@ Configuring Tiles internals
 
 ** Custom {PatternDefinitionResolver}
 
-  The default implementation is {{{./apidocs/org/apache/tiles/definition/pattern/BasicPatternDefinitionResolver.html}BasicPatternDefinitionResolver}},
+  The default implementation is {{{./apidocs/io/github/laurentschoelens/tiles/definition/pattern/BasicPatternDefinitionResolver.html}BasicPatternDefinitionResolver}},
   that implements the <wildcard> syntax.
   
   <<<CompleteAutoloadTilesContainerFactory>>> defines a <<<PrefixedPatternDefinitionResolver>>> to enable the use of 
@@ -220,7 +220,7 @@ Configuring Tiles internals
 
 * Registering {Renderers}
 
-  Custom {{{/tiles-request/apidocs/org/apache/tiles/request/render/Renderer.html}Renderers}} can be registered by overriding the methods
+  Custom {{{/tiles-request/apidocs/io/github/laurentschoelens/tiles/request/render/Renderer.html}Renderers}} can be registered by overriding the methods
   <<<registerAttributeRenderers>>> and <<<createDefaultAttributeRenderer>>>.
   
   <<<BasicTilesContainerFactory>>> registers 3 renderers: <<<string>>>, <<<template>>>, and <<<definition>>>, in order to

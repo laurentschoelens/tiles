@@ -21,4 +21,4 @@
  *
  */
 -->
-<@tiles.insertDefinition name="freemarker.preparer.definition" preparer="org.apache.tiles.test.preparer.TestViewPreparer" />
+<@tiles.insertDefinition name="freemarker.preparer.definition" preparer="io.github.laurentschoelens.tiles.test.preparer.TestViewPreparer" />

@@ -36,7 +36,7 @@
   <description>Tiles OGNL support: Classes and tag libraries to use OGNL as an expression language in attribute expressions.</description>
 
   <properties>
-  	<tiles.osgi.symbolicName>org.apache.tiles.ognl</tiles.osgi.symbolicName>
+  	<tiles.osgi.symbolicName>io.github.laurentschoelens.tiles.ognl</tiles.osgi.symbolicName>
   </properties>
 
   <build>

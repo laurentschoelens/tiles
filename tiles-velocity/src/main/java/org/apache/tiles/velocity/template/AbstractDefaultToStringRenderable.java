@@ -19,7 +19,7 @@
  * under the License.
  */
 
-package org.apache.tiles.velocity.template;
+package io.github.laurentschoelens.tiles.velocity.template;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -28,7 +28,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tiles.velocity.TilesVelocityException;
+import io.github.laurentschoelens.tiles.velocity.TilesVelocityException;
 import org.apache.velocity.context.Context;
 import org.apache.velocity.exception.MethodInvocationException;
 import org.apache.velocity.exception.ParseErrorException;

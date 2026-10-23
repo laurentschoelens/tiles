@@ -42,7 +42,7 @@ Integration with FreeMarker
 ----------------------------------
 <servlet>
     <servlet-name>freemarker</servlet-name>
-    <servlet-class>org.apache.tiles.freemarker.servlet.TilesFreemarkerServlet</servlet-class>
+    <servlet-class>io.github.laurentschoelens.tiles.freemarker.servlet.TilesFreemarkerServlet</servlet-class>
 
     <!-- FreemarkerServlet settings: -->
     <init-param>

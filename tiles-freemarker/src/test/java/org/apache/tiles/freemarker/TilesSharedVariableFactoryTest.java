@@ -18,7 +18,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.tiles.freemarker;
+package io.github.laurentschoelens.tiles.freemarker;
 
 import static org.junit.Assert.*;
 
@@ -34,7 +34,7 @@ import freemarker.ext.beans.BeanModel;
 public class TilesSharedVariableFactoryTest {
 
     /**
-     * Test method for {@link org.apache.tiles.freemarker.TilesSharedVariableFactory#create()}.
+     * Test method for {@link io.github.laurentschoelens.tiles.freemarker.TilesSharedVariableFactory#create()}.
      */
     @Test
     public void testCreate() {

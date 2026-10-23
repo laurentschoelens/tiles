@@ -38,16 +38,16 @@ Integration with Apache Velocity
   * Add this code in you <<<velocity.properties>>> file:
 
 ----------------------------------
-userdirective=org.apache.tiles.velocity.template.AddAttributeDirective,\
-  org.apache.tiles.velocity.template.AddListAttributeDirective,\
-  org.apache.tiles.velocity.template.DefinitionDirective,\
-  org.apache.tiles.velocity.template.GetAsStringDirective,\
-  org.apache.tiles.velocity.template.ImportAttributeDirective,\
-  org.apache.tiles.velocity.template.InsertAttributeDirective,\
-  org.apache.tiles.velocity.template.InsertDefinitionDirective,\
-  org.apache.tiles.velocity.template.InsertTemplateDirective,\
-  org.apache.tiles.velocity.template.PutAttributeDirective,\
-  org.apache.tiles.velocity.template.PutListAttributeDirective
+userdirective=io.github.laurentschoelens.tiles.velocity.template.AddAttributeDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.AddListAttributeDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.DefinitionDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.GetAsStringDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.ImportAttributeDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.InsertAttributeDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.InsertDefinitionDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.InsertTemplateDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.PutAttributeDirective,\
+  io.github.laurentschoelens.tiles.velocity.template.PutListAttributeDirective
 ----------------------------------
 
 

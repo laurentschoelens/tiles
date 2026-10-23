@@ -105,7 +105,7 @@
 
     <definition name="velocity.testdispatchservlet" extends="test.definition"/>
 
-  <definition name="velocity.preparer.definition.configured" extends="preparer.definition" preparer="org.apache.tiles.test.preparer.TestViewPreparer" />
+  <definition name="velocity.preparer.definition.configured" extends="preparer.definition" preparer="io.github.laurentschoelens.tiles.test.preparer.TestViewPreparer" />
 
   <definition name="velocity.test.localized.definition" template="/velocity/layout.vm" templateType="velocity">
       <put-attribute name="title" value="Default locale" />
@@ -208,28 +208,28 @@
   </definition>
 
   <definition name="velocity.test.composite.el.definition" templateExpression="${layout}"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/velocity/header.vm" type="velocity" />
       <put-attribute name="body"   expression="${requestScope.body}"/>
   </definition>
 
   <definition name="velocity.test.composite.mvel.definition" templateExpression="MVEL:layout"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/velocity/header.vm" type="velocity" />
       <put-attribute name="body"   expression="MVEL:requestScope.body"/>
   </definition>
 
   <definition name="velocity.test.composite.ognl.definition" templateExpression="OGNL:layout"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/velocity/header.vm" type="velocity" />
       <put-attribute name="body"   expression="OGNL:requestScope.body"/>
   </definition>
 
   <definition name="velocity.test.composite.el.doNotShow.definition" templateExpression="${layout}"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured definition."/>
       <put-attribute name="header" value="/velocity/header.vm" type="velocity" />
       <put-attribute name="body"   expression="${requestScope.doNotShowBody}"/>

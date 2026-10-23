@@ -28,6 +28,6 @@
   </tr>
   <tr>
     <td>#tiles_insertAttribute({"name":"body",
-        "preparer":"org.apache.tiles.test.preparer.AttributeViewPreparer"})#end</td>
+        "preparer":"io.github.laurentschoelens.tiles.test.preparer.AttributeViewPreparer"})#end</td>
   </tr>
 </table>

@@ -58,7 +58,7 @@
         </source>
 
    <p>You can see Tiles in action by downloading a snapshot of the 'tiles-test' webapp,
-   <a href="http://repository.apache.org/snapshots/org/apache/tiles/tiles-test/3.0.0-SNAPSHOT">
+   <a href="http://repository.apache.org/snapshots/io/github/laurentschoelens/tiles/tiles-test/3.0.0-SNAPSHOT">
    here</a>.</p>
 
     </subsection>

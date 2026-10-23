@@ -153,7 +153,7 @@
                           <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                       </manifest>
                       <manifestEntries>
-                          <Tiles-Initializer>org.apache.tiles.test.init.TestTilesInitializer</Tiles-Initializer>
+                          <Tiles-Initializer>io.github.laurentschoelens.tiles.test.init.TestTilesInitializer</Tiles-Initializer>
                       </manifestEntries>
                   </archive>
                </configuration>
@@ -430,7 +430,7 @@
                                     <goal>upload</goal>
                                 </goals>
                                 <configuration>
-                                    <fromDir>${settings.localRepository}/org/apache/tiles/tiles-test/${project.version}</fromDir>
+                                    <fromDir>${settings.localRepository}/io/github/laurentschoelens/tiles/tiles-test/${project.version}</fromDir>
                                     <includes>tiles-test-${project.version}.war*</includes>
                                     <toDir>${project.version}</toDir>
                                     <serverId>tiles.build</serverId>

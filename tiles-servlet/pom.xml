@@ -37,7 +37,7 @@
   </description>
 
   <properties>
-      <tiles.osgi.symbolicName>org.apache.tiles.servlet</tiles.osgi.symbolicName>
+      <tiles.osgi.symbolicName>io.github.laurentschoelens.tiles.servlet</tiles.osgi.symbolicName>
   </properties>
 
   <build>

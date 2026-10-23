@@ -21,7 +21,7 @@
  *
  */
 -->
-<@tiles.definition name="templateDefinition" template="/freemarker/layout.ftl" preparer="org.apache.tiles.test.preparer.TestViewPreparer">
+<@tiles.definition name="templateDefinition" template="/freemarker/layout.ftl" preparer="io.github.laurentschoelens.tiles.test.preparer.TestViewPreparer">
   <@tiles.putAttribute name="title"  value="This is the title." />
   <@tiles.putAttribute name="header" value="/freemarker/header.ftl" />
   <@tiles.putAttribute name="body"   value="/freemarker/body.ftl" />

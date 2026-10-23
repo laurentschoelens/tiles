@@ -19,7 +19,7 @@
  * under the License.
  */
 
-package org.apache.tiles.velocity;
+package io.github.laurentschoelens.tiles.velocity;
 
 import static org.junit.Assert.*;
 

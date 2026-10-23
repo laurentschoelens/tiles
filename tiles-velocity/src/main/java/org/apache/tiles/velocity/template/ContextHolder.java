@@ -19,7 +19,7 @@
  * under the License.
  */
 
-package org.apache.tiles.velocity.template;
+package io.github.laurentschoelens.tiles.velocity.template;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

@@ -36,7 +36,7 @@
 * Configuration
 
   Override the
-  {{{../apidocs/org/apache/tiles/factory/BasicTilesContainerFactory.html#createDefinitionsReader(java.lang.Object,%20org.apache.tiles.TilesApplicationContext,%20org.apache.tiles.context.TilesRequestContextFactory)}createDefinitionsReader}}
+  {{{../apidocs/io/github/laurentschoelens/tiles/factory/BasicTilesContainerFactory.html#createDefinitionsReader(java.lang.Object,%20io.github.laurentschoelens.tiles.TilesApplicationContext,%20io.github.laurentschoelens.tiles.context.TilesRequestContextFactory)}createDefinitionsReader}}
   method this way:
 
 ---------------------------------------
@@ -50,7 +50,7 @@ protected DefinitionsReader createDefinitionsReader(Object context,
 
   You need to add a renderer for the "page" attribute type, that is in fact the "template" type.
   So override the
-  {{{../apidocs/org/apache/tiles/factory/BasicTilesContainerFactory.html#registerAttributeRenderers(org.apache.tiles.renderer.impl.BasicRendererFactory,%20java.lang.Object,%20org.apache.tiles.TilesApplicationContext,%20org.apache.tiles.context.TilesRequestContextFactory,%20org.apache.tiles.TilesContainer,%20org.apache.tiles.evaluator.AttributeEvaluator)}registerAttributeRenderers}}
+  {{{../apidocs/io/github/laurentschoelens/tiles/factory/BasicTilesContainerFactory.html#registerAttributeRenderers(io.github.laurentschoelens.tiles.renderer.impl.BasicRendererFactory,%20java.lang.Object,%20io.github.laurentschoelens.tiles.TilesApplicationContext,%20io.github.laurentschoelens.tiles.context.TilesRequestContextFactory,%20io.github.laurentschoelens.tiles.TilesContainer,%20io.github.laurentschoelens.tiles.evaluator.AttributeEvaluator)}registerAttributeRenderers}}
   method.
 
 ---------------------------------------

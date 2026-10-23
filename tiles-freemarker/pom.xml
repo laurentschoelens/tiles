@@ -35,7 +35,7 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.tiles.autotag.plugin</groupId>
+        <groupId>io.github.laurentschoelens.tiles.autotag.plugin</groupId>
         <artifactId>autotag-maven-plugin</artifactId>
         <version>${tiles.autotag.version}</version>
         <executions>
@@ -44,9 +44,9 @@
                     <goal>generate-freemarker</goal>
                 </goals>
                 <configuration>
-                    <packageName>org.apache.tiles.freemarker.template</packageName>
-                    <requestClass>org.apache.tiles.request.Request</requestClass>
-                    <freemarkerRuntime>org.apache.tiles.request.freemarker.autotag.FreemarkerAutotagRuntime</freemarkerRuntime>
+                    <packageName>io.github.laurentschoelens.tiles.freemarker.template</packageName>
+                    <requestClass>io.github.laurentschoelens.tiles.request.Request</requestClass>
+                    <freemarkerRuntime>io.github.laurentschoelens.tiles.request.freemarker.autotag.FreemarkerAutotagRuntime</freemarkerRuntime>
                 </configuration>
             </execution>
         </executions>

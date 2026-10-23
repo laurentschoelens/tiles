@@ -10,8 +10,8 @@ Implementation-Title: Tiles - Test webapp database configuration
 Implementation-Version: 2.2.1-SNAPSHOT
 Implementation-Vendor-Id: org.apache
 Implementation-Vendor: Apache Software Foundation
-Tiles-Initializer: org.apache.tiles.test.db.TestDbTilesInitializer
-Export-Package: org.apache.tiles.test.db;version="2.2.1.SNAPSHOT"
+Tiles-Initializer: db.test.io.github.laurentschoelens.tiles.TestDbTilesInitializer
+Export-Package: io.github.laurentschoelens.tiles.test.db;version="2.2.1.SNAPSHOT"
 Tool: Bnd-0.0.311
 Bundle-Name: Tiles - Test webapp database configuration
 Bundle-Vendor: Apache Software Foundation
@@ -20,13 +20,13 @@ Bnd-LastModified: 1254151614318
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Bundle-Description: Tiles configuration that uses a database.
-Import-Package: javax.sql,org.apache.tiles,org.apache.tiles.context,or
- g.apache.tiles.definition,org.apache.tiles.definition.dao,org.apache.
- tiles.factory,org.apache.tiles.freemarker.context,org.apache.tiles.lo
- cale,org.apache.tiles.test.db;version="2.2",org.apache.tiles.util,org
+Import-Package: javax.sql,io.github.laurentschoelens.tiles,io.github.laurentschoelens.tiles.context,or
+ g.apache.tiles.definition,io.github.laurentschoelens.tiles.definition.dao,org.apache.
+ tiles.factory,io.github.laurentschoelens.tiles.freemarker.context,io.github.laurentschoelens.tiles.lo
+ cale,io.github.laurentschoelens.tiles.test.db;version="2.2",io.github.laurentschoelens.tiles.util,org
  .apache.tiles.velocity.context,org.springframework.jdbc.core,org.spri
  ngframework.jdbc.core.support
-Bundle-SymbolicName: org.apache.tiles-test-db
+Bundle-SymbolicName: io.github.laurentschoelens.tiles-test-db
 Bundle-DocURL: http://tiles.apache.org/framework/tiles-test-pom/tiles-
  test-db
 

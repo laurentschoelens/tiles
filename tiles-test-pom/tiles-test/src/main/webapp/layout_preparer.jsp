@@ -33,6 +33,6 @@
   </tr>
   <tr>
     <td><tiles:insertAttribute name="body"
-        preparer="org.apache.tiles.test.preparer.AttributeViewPreparer"/></td>
+        preparer="io.github.laurentschoelens.tiles.test.preparer.AttributeViewPreparer"/></td>
   </tr>
 </table>           

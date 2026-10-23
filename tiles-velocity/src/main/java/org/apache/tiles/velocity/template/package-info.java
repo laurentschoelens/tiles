@@ -21,4 +21,4 @@
 /**
  * Classes that allow the use of "Tiles template" as a Velocity tool.
  */
-package org.apache.tiles.velocity.template;
+package io.github.laurentschoelens.tiles.velocity.template;

@@ -40,7 +40,7 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.tiles.autotag.plugin</groupId>
+        <groupId>io.github.laurentschoelens.tiles.autotag.plugin</groupId>
         <artifactId>autotag-maven-plugin</artifactId>
         <version>${tiles.autotag.version}</version>
         <executions>
@@ -49,9 +49,9 @@
                     <goal>generate-velocity</goal>
                 </goals>
                 <configuration>
-                    <packageName>org.apache.tiles.velocity.template</packageName>
-                    <requestClass>org.apache.tiles.request.Request</requestClass>
-                    <velocityRuntime>org.apache.tiles.request.velocity.autotag.VelocityAutotagRuntime</velocityRuntime>
+                    <packageName>io.github.laurentschoelens.tiles.velocity.template</packageName>
+                    <requestClass>io.github.laurentschoelens.tiles.request.Request</requestClass>
+                    <velocityRuntime>io.github.laurentschoelens.tiles.request.velocity.autotag.VelocityAutotagRuntime</velocityRuntime>
                 </configuration>
             </execution>
         </executions>

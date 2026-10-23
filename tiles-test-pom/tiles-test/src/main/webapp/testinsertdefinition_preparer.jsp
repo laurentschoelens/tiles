@@ -24,4 +24,4 @@
 --%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-<tiles:insertDefinition name="preparer.definition" preparer="org.apache.tiles.test.preparer.TestViewPreparer" />
+<tiles:insertDefinition name="preparer.definition" preparer="io.github.laurentschoelens.tiles.test.preparer.TestViewPreparer" />

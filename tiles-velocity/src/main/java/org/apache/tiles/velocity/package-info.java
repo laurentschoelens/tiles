@@ -21,4 +21,4 @@
 /**
  * Classes to support Velocity under a servlet environment in Tiles.
  */
-package org.apache.tiles.velocity;
+package io.github.laurentschoelens.tiles.velocity;

@@ -19,20 +19,20 @@
  * under the License.
  */
 
-package org.apache.tiles.velocity.template;
+package io.github.laurentschoelens.tiles.velocity.template;
 
 import java.io.IOException;
 import java.io.Writer;
 
 import jakarta.servlet.ServletContext;
 
-import org.apache.tiles.Attribute;
-import org.apache.tiles.AttributeContext;
-import org.apache.tiles.TilesContainer;
-import org.apache.tiles.access.TilesAccess;
-import org.apache.tiles.request.Request;
-import org.apache.tiles.request.servlet.ServletUtil;
-import org.apache.tiles.request.velocity.VelocityRequest;
+import io.github.laurentschoelens.tiles.Attribute;
+import io.github.laurentschoelens.tiles.AttributeContext;
+import io.github.laurentschoelens.tiles.TilesContainer;
+import io.github.laurentschoelens.tiles.access.TilesAccess;
+import io.github.laurentschoelens.tiles.request.Request;
+import io.github.laurentschoelens.tiles.request.servlet.ServletUtil;
+import io.github.laurentschoelens.tiles.request.velocity.VelocityRequest;
 import org.apache.velocity.context.InternalContextAdapter;
 import org.apache.velocity.runtime.Renderable;
 

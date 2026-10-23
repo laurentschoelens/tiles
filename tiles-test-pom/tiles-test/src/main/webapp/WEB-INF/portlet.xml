@@ -31,7 +31,7 @@
     <portlet-name>TestPortlet</portlet-name>
     <display-name>TestPortlet</display-name>
     <portlet-class>
-      org.apache.tiles.test.portlet.TestPortlet
+        io.github.laurentschoelens.tiles.test.portlet.TestPortlet
     </portlet-class>
     <supports>
       <mime-type>text/html</mime-type>

@@ -28,7 +28,7 @@ Defining multiple containers
 * Configuration
 
   To use an alternate container, you need to override the
-  {{{../../apidocs/org/apache/tiles/startup/AbstractTilesInitializer.html#method_summary}getContainerKey}}
+  {{{../../apidocs/io/github/laurentschoelens/tiles/startup/AbstractTilesInitializer.html#method_summary}getContainerKey}}
   method of <<<AbstractTilesInitializer>>> this way:
 
 ------------------------------------
@@ -66,7 +66,7 @@ Selecting one non-default container
 
   It is possible to use, for the current request, a different container
   stored under another key, by using
-  {{{../../apidocs/org/apache/tiles/access/TilesAccess.html#method_summary}<<<setCurrentContainer>>>}}
+  {{{../../apidocs/io/github/laurentschoelens/tiles/access/TilesAccess.html#method_summary}<<<setCurrentContainer>>>}}
   method of TilesAccess class. For example:
 
 ------------------------------------

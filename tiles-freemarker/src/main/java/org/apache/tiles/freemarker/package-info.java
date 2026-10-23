@@ -21,4 +21,4 @@
 /**
  * Classes for supporting FreeMarker in Tiles.
  */
-package org.apache.tiles.freemarker;
+package io.github.laurentschoelens.tiles.freemarker;

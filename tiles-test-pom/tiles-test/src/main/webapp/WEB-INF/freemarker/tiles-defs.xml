@@ -105,7 +105,7 @@
 
     <definition name="freemarker.testdispatchservlet" extends="test.definition"/>
 
-  <definition name="freemarker.preparer.definition.configured" extends="preparer.definition" preparer="org.apache.tiles.test.preparer.TestViewPreparer" />
+  <definition name="freemarker.preparer.definition.configured" extends="preparer.definition" preparer="io.github.laurentschoelens.tiles.test.preparer.TestViewPreparer" />
 
   <definition name="freemarker.test.localized.definition" template="/freemarker/layout.ftl" templateType="freemarker">
       <put-attribute name="title" value="Default locale" />
@@ -208,28 +208,28 @@
   </definition>
 
   <definition name="freemarker.test.composite.el.definition" templateExpression="${layout}"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/freemarker/header.ftl" type="freemarker" />
       <put-attribute name="body"   expression="${requestScope.body}"/>
   </definition>
 
   <definition name="freemarker.test.composite.mvel.definition" templateExpression="MVEL:layout"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/freemarker/header.ftl" type="freemarker" />
       <put-attribute name="body"   expression="MVEL:requestScope.body"/>
   </definition>
 
   <definition name="freemarker.test.composite.ognl.definition" templateExpression="OGNL:layout"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured composite definition."/>
       <put-attribute name="header" value="/freemarker/header.ftl" type="freemarker" />
       <put-attribute name="body"   expression="OGNL:requestScope.body"/>
   </definition>
 
   <definition name="freemarker.test.composite.el.doNotShow.definition" templateExpression="${layout}"
-        preparer="org.apache.tiles.test.preparer.RequestSettingViewPreparer">
+        preparer="io.github.laurentschoelens.tiles.test.preparer.RequestSettingViewPreparer">
       <put-attribute name="title"  value="This is a configured definition."/>
       <put-attribute name="header" value="/freemarker/header.ftl" type="freemarker" />
       <put-attribute name="body"   expression="${requestScope.doNotShowBody}"/>

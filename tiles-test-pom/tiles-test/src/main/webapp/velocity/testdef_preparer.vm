@@ -19,7 +19,7 @@
  * under the License.
  *
  *#
-#tiles_definition({"name":"templateDefinition", "template":"/velocity/layout.vm", "preparer":"org.apache.tiles.test.preparer.TestViewPreparer"})
+#tiles_definition({"name":"templateDefinition", "template":"/velocity/layout.vm", "preparer":"io.github.laurentschoelens.tiles.test.preparer.TestViewPreparer"})
   #tiles_putAttribute({"name":"title", "value":"This is the title."})#end
   #tiles_putAttribute({"name":"header", "value":"/velocity/header.vm", "type":"velocity"})#end
   #tiles_putAttribute({"name":"body", "value":"/velocity/body.vm", "type":"velocity"})#end

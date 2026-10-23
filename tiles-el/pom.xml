@@ -29,7 +29,7 @@
   <description>Tiles EL (Expression Language) support: Classes and tag libraries to use EL as an expression language in attribute expressions.	</description>
 
   <properties>
-    <tiles.osgi.symbolicName>org.apache.tiles.el</tiles.osgi.symbolicName>
+    <tiles.osgi.symbolicName>io.github.laurentschoelens.tiles.el</tiles.osgi.symbolicName>
   </properties>
 
   <build>
