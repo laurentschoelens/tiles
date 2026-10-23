@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -21,18 +21,17 @@
 package org.apache.tiles.web.util;
 
 import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
 
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Map;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.AttributeContext;
@@ -125,7 +124,7 @@ public class TilesDecorationFilterTest {
         expect(applicationScope.get("key")).andReturn(container);
         expect(container.getAttributeContext(isA(ServletRequest.class))).andReturn(attributeContext);
         request.setAttribute("org.apache.tiles.decoration.PREVENT:tokenKey", true);
-        expect(request.getAttribute("javax.servlet.include.servlet_path")).andReturn(null);
+        expect(request.getAttribute("jakarta.servlet.include.servlet_path")).andReturn(null);
         expect(request.getServletPath()).andReturn("/tiles");
         container.render(eq("definitionKey"), isA(ServletRequest.class));
         chain.doFilter(request, response);
@@ -144,7 +143,7 @@ public class TilesDecorationFilterTest {
 
         @Override
         public void mutate(AttributeContext context,
-                javax.servlet.ServletRequest request) {
+                jakarta.servlet.ServletRequest request) {
             // Does nothing.
         }
     }

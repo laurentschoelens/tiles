@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -121,7 +121,9 @@ public final class OptionsRenderer implements Renderer {
             for (Attribute option : (List<Attribute>) fallbacks.getValue()) {
                 String template = path.replaceFirst(Pattern.quote(matcher.group()), (String) option.getValue());
                 done = renderAttempt(template, request);
-                if (done) { break; }
+                if (done) {
+                    break;
+                }
             }
             if (!done) {
                 throw new IOException("None of the options existed for " + path);
@@ -167,12 +169,12 @@ public final class OptionsRenderer implements Renderer {
 
         /** It takes CACHE_LIFE milliseconds for any hot deployments to register.
          */
-        private static final ConcurrentMap<String,Boolean> TEMPLATE_EXISTS;
+        private static final ConcurrentMap<String, Boolean> TEMPLATE_EXISTS;
 
         static {
             LOG.info("cache_ttl_ms=" + CACHE_LIFE);
 
-            LoadingCache<String,Boolean> builder = CacheBuilder
+            LoadingCache<String, Boolean> builder = CacheBuilder
                     .newBuilder()
                     .expireAfterWrite(CACHE_LIFE, TimeUnit.MILLISECONDS)
                     .build(
@@ -198,6 +200,7 @@ public final class OptionsRenderer implements Renderer {
             TEMPLATE_EXISTS.putIfAbsent(template, found);
         }
 
-        private Cache() {}
+        private Cache() {
+        }
     }
 }

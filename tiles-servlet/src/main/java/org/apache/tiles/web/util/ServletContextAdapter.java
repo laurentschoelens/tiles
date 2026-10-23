@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -24,14 +24,23 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
+import java.util.EventListener;
 import java.util.Hashtable;
+import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterRegistration;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRegistration;
+import jakarta.servlet.ServletRegistration.Dynamic;
+import jakarta.servlet.SessionCookieConfig;
+import jakarta.servlet.SessionTrackingMode;
+import jakarta.servlet.descriptor.JspConfigDescriptor;
 
 /**
  * Adapts a servlet config and a servlet context to become a unique servlet
@@ -124,30 +133,8 @@ public class ServletContextAdapter implements ServletContext {
     }
 
     /** {@inheritDoc} */
-    public Servlet getServlet(String string) throws ServletException {
-        return rootContext.getServlet(string);
-    }
-
-    /** {@inheritDoc} */
-    @SuppressWarnings("rawtypes")
-    public Enumeration getServlets() {
-        return rootContext.getServlets();  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    /** {@inheritDoc} */
-    @SuppressWarnings("rawtypes")
-    public Enumeration getServletNames() {
-        return rootContext.getServletNames();
-    }
-
-    /** {@inheritDoc} */
     public void log(String string) {
         rootContext.log(string);
-    }
-
-    /** {@inheritDoc} */
-    public void log(Exception exception, String string) {
-        rootContext.log(exception, string);
     }
 
     /** {@inheritDoc} */
@@ -205,5 +192,176 @@ public class ServletContextAdapter implements ServletContext {
     /** {@inheritDoc} */
     public String getContextPath() {
         return rootContext.getContextPath();
+    }
+
+    @Override
+    public int getEffectiveMajorVersion() {
+        return rootContext.getEffectiveMajorVersion();
+    }
+
+    @Override
+    public int getEffectiveMinorVersion() {
+        return rootContext.getEffectiveMinorVersion();
+    }
+
+    @Override
+    public boolean setInitParameter(String name, String value) {
+        return rootContext.setInitParameter(name, value);
+    }
+
+    @Override
+    public Dynamic addServlet(String servletName, String className) {
+        return rootContext.addServlet(servletName, className);
+    }
+
+    @Override
+    public Dynamic addServlet(String servletName, Servlet servlet) {
+        return rootContext.addServlet(servletName, servlet);
+    }
+
+    @Override
+    public Dynamic addServlet(String servletName, Class<? extends Servlet> servletClass) {
+        return rootContext.addServlet(servletName, servletClass);
+    }
+
+    @Override
+    public Dynamic addJspFile(String servletName, String jspFile) {
+        return rootContext.addJspFile(servletName, jspFile);
+    }
+
+    @Override
+    public <T extends Servlet> T createServlet(Class<T> clazz) throws ServletException {
+        return rootContext.createServlet(clazz);
+    }
+
+    @Override
+    public ServletRegistration getServletRegistration(String servletName) {
+        return rootContext.getServletRegistration(servletName);
+    }
+
+    @Override
+    public Map<String, ? extends ServletRegistration> getServletRegistrations() {
+        return rootContext.getServletRegistrations();
+    }
+
+    @Override
+    public jakarta.servlet.FilterRegistration.Dynamic addFilter(String filterName, String className) {
+        return rootContext.addFilter(filterName, className);
+    }
+
+    @Override
+    public jakarta.servlet.FilterRegistration.Dynamic addFilter(String filterName, Filter filter) {
+        return rootContext.addFilter(filterName, filter);
+    }
+
+    @Override
+    public jakarta.servlet.FilterRegistration.Dynamic addFilter(
+            String filterName, Class<? extends Filter> filterClass) {
+        return rootContext.addFilter(filterName, filterClass);
+    }
+
+    @Override
+    public <T extends Filter> T createFilter(Class<T> clazz) throws ServletException {
+        return rootContext.createFilter(clazz);
+    }
+
+    @Override
+    public FilterRegistration getFilterRegistration(String filterName) {
+        return rootContext.getFilterRegistration(filterName);
+    }
+
+    @Override
+    public Map<String, ? extends FilterRegistration> getFilterRegistrations() {
+        return rootContext.getFilterRegistrations();
+    }
+
+    @Override
+    public SessionCookieConfig getSessionCookieConfig() {
+        return rootContext.getSessionCookieConfig();
+    }
+
+    @Override
+    public void setSessionTrackingModes(Set<SessionTrackingMode> sessionTrackingModes) {
+        rootContext.setSessionTrackingModes(sessionTrackingModes);
+    }
+
+    @Override
+    public Set<SessionTrackingMode> getDefaultSessionTrackingModes() {
+        return rootContext.getDefaultSessionTrackingModes();
+    }
+
+    @Override
+    public Set<SessionTrackingMode> getEffectiveSessionTrackingModes() {
+        return rootContext.getEffectiveSessionTrackingModes();
+    }
+
+    @Override
+    public void addListener(String className) {
+        rootContext.addListener(className);
+    }
+
+    @Override
+    public <T extends EventListener> void addListener(T t) {
+        rootContext.addListener(t);
+    }
+
+    @Override
+    public void addListener(Class<? extends EventListener> listenerClass) {
+        rootContext.addListener(listenerClass);
+    }
+
+    @Override
+    public <T extends EventListener> T createListener(Class<T> clazz) throws ServletException {
+        return rootContext.createListener(clazz);
+    }
+
+    @Override
+    public JspConfigDescriptor getJspConfigDescriptor() {
+        return rootContext.getJspConfigDescriptor();
+    }
+
+    @Override
+    public ClassLoader getClassLoader() {
+        return rootContext.getClassLoader();
+    }
+
+    @Override
+    public void declareRoles(String... roleNames) {
+        rootContext.declareRoles(roleNames);
+    }
+
+    @Override
+    public String getVirtualServerName() {
+        return rootContext.getVirtualServerName();
+    }
+
+    @Override
+    public int getSessionTimeout() {
+        return rootContext.getSessionTimeout();
+    }
+
+    @Override
+    public void setSessionTimeout(int sessionTimeout) {
+        rootContext.setSessionTimeout(sessionTimeout);
+    }
+
+    @Override
+    public String getRequestCharacterEncoding() {
+        return rootContext.getRequestCharacterEncoding();
+    }
+
+    @Override
+    public void setRequestCharacterEncoding(String encoding) {
+        rootContext.setRequestCharacterEncoding(encoding);
+    }
+
+    @Override
+    public String getResponseCharacterEncoding() {
+        return rootContext.getResponseCharacterEncoding();
+    }
+
+    @Override
+    public void setResponseCharacterEncoding(String encoding) {
+        rootContext.setResponseCharacterEncoding(encoding);
     }
 }

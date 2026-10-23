@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -21,8 +21,8 @@
 
 package org.apache.tiles.compat.definition.digester;
 
-import org.apache.commons.digester.Digester;
-import org.apache.commons.digester.Rule;
+import org.apache.commons.digester3.Digester;
+import org.apache.commons.digester3.Rule;
 import org.apache.tiles.Attribute;
 import org.apache.tiles.beans.SimpleMenuItem;
 import org.apache.tiles.definition.digester.DigesterDefinitionsReader;
@@ -256,9 +256,9 @@ public class CompatibilityDigesterDefinitionsReader extends
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Object obj = digester.pop();
+            Object obj = getDigester().pop();
             Attribute attribute = new Attribute(obj);
-            digester.push(attribute);
+            getDigester().push(attribute);
         }
     }
 }

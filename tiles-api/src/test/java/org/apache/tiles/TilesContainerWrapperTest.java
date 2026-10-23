@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -20,7 +20,7 @@
  */
 package org.apache.tiles;
 
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
@@ -96,10 +96,10 @@ public class TilesContainerWrapperTest {
         Request request = createMock(Request.class);
         Attribute attribute = createMock(Attribute.class);
 
-        expect(container.evaluate(attribute, request)).andReturn(new Integer(1));
+        expect(container.evaluate(attribute, request)).andReturn(Integer.valueOf(1));
 
         replay(container, request, attribute);
-        assertEquals(new Integer(1), wrapper.evaluate(attribute, request));
+        assertEquals(Integer.valueOf(1), wrapper.evaluate(attribute, request));
         verify(container, request, attribute);
     }
 

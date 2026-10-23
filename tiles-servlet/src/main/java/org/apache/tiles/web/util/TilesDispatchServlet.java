@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -20,10 +20,10 @@
  */
 package org.apache.tiles.web.util;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.AttributeContext;
 import org.apache.tiles.TilesContainer;
@@ -112,7 +112,7 @@ public class TilesDispatchServlet extends HttpServlet {
      * @return The definition name to render.
      */
     protected String getDefinitionName(HttpServletRequest request) {
-        String path = (String) request.getAttribute("javax.servlet.include.servlet_path");
+        String path = (String) request.getAttribute("jakarta.servlet.include.servlet_path");
         if (path == null) {
             path = request.getServletPath();
         }
@@ -136,7 +136,7 @@ public class TilesDispatchServlet extends HttpServlet {
     class DefaultMutator implements AttributeContextMutator {
 
         /** {@inheritDoc} */
-        public void mutate(AttributeContext context, javax.servlet.ServletRequest request) {
+        public void mutate(AttributeContext context, jakarta.servlet.ServletRequest request) {
             // noop;
         }
     }

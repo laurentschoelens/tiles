@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -21,7 +21,6 @@
 package org.apache.tiles.web.util;
 
 import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.io.InputStream;
@@ -31,11 +30,11 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 import org.junit.After;
 import org.junit.Before;
@@ -164,7 +163,7 @@ public class ServletContextAdapterTest {
     @SuppressWarnings("unchecked")
     @Test
     public void testGetResourcePaths() {
-        Set<URL> urls = createMock(Set.class);
+        Set<String> urls = createMock(Set.class);
 
         expect(servletContext.getResourcePaths("whatever")).andReturn(urls);
 
@@ -235,55 +234,6 @@ public class ServletContextAdapterTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.web.util.ServletContextAdapter#getServlet(java.lang.String)}.
-     * @throws ServletException If something goes wrong.
-     */
-    @SuppressWarnings("deprecation")
-    @Test
-    public void testGetServlet() throws ServletException {
-        Servlet is = createMock(Servlet.class);
-
-        expect(servletContext.getServlet("whatever")).andReturn(is);
-
-        replay(servletContext, config, is);
-        ServletContextAdapter adapter = new ServletContextAdapter(config);
-        assertEquals(is, adapter.getServlet("whatever"));
-        verify(is);
-    }
-
-    /**
-     * Test method for {@link org.apache.tiles.web.util.ServletContextAdapter#getServlets()}.
-     */
-    @SuppressWarnings({ "deprecation", "unchecked" })
-    @Test
-    public void testGetServlets() {
-        Enumeration<Servlet> is = createMock(Enumeration.class);
-
-        expect(servletContext.getServlets()).andReturn(is);
-
-        replay(servletContext, config, is);
-        ServletContextAdapter adapter = new ServletContextAdapter(config);
-        assertEquals(is, adapter.getServlets());
-        verify(is);
-    }
-
-    /**
-     * Test method for {@link org.apache.tiles.web.util.ServletContextAdapter#getServletNames()}.
-     */
-    @SuppressWarnings({ "deprecation", "unchecked" })
-    @Test
-    public void testGetServletNames() {
-        Enumeration<String> is = createMock(Enumeration.class);
-
-        expect(servletContext.getServletNames()).andReturn(is);
-
-        replay(servletContext, config, is);
-        ServletContextAdapter adapter = new ServletContextAdapter(config);
-        assertEquals(is, adapter.getServletNames());
-        verify(is);
-    }
-
-    /**
      * Test method for {@link org.apache.tiles.web.util.ServletContextAdapter#log(java.lang.String)}.
      */
     @Test
@@ -293,20 +243,6 @@ public class ServletContextAdapterTest {
         replay(servletContext, config);
         ServletContextAdapter adapter = new ServletContextAdapter(config);
         adapter.log("whatever");
-    }
-
-    /**
-     * Test method for {@link ServletContextAdapter#log(java.lang.Exception, java.lang.String)}.
-     */
-    @SuppressWarnings("deprecation")
-    @Test
-    public void testLogExceptionString() {
-        Exception e = new Exception("It does not matter");
-        servletContext.log(e, "whatever");
-
-        replay(servletContext, config);
-        ServletContextAdapter adapter = new ServletContextAdapter(config);
-        adapter.log(e, "whatever");
     }
 
     /**

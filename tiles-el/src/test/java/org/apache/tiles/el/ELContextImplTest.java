@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -20,13 +20,13 @@
  */
 package org.apache.tiles.el;
 
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.*;
 import static org.junit.Assert.*;
 
-import javax.el.ELResolver;
-import javax.el.FunctionMapper;
-import javax.el.ValueExpression;
-import javax.el.VariableMapper;
+import jakarta.el.ELResolver;
+import jakarta.el.FunctionMapper;
+import jakarta.el.ValueExpression;
+import jakarta.el.VariableMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,7 +68,7 @@ public class ELContextImplTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.el.ELContextImpl#setFunctionMapper(javax.el.FunctionMapper)}.
+     * Test method for {@link org.apache.tiles.el.ELContextImpl#setFunctionMapper(jakarta.el.FunctionMapper)}.
      */
     @Test
     public void testSetFunctionMapper() {
@@ -81,7 +81,7 @@ public class ELContextImplTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.el.ELContextImpl#setVariableMapper(javax.el.VariableMapper)}.
+     * Test method for {@link org.apache.tiles.el.ELContextImpl#setVariableMapper(jakarta.el.VariableMapper)}.
      */
     @Test
     public void testSetVariableMapper() {

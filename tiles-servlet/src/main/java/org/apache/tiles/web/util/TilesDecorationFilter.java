@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -25,14 +25,14 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.Attribute;
 import org.apache.tiles.AttributeContext;
@@ -210,7 +210,7 @@ public class TilesDecorationFilter implements Filter {
     /**
      * {@inheritDoc}
      */
-    public void doFilter(javax.servlet.ServletRequest req, ServletResponse res, FilterChain filterChain)
+    public void doFilter(jakarta.servlet.ServletRequest req, ServletResponse res, FilterChain filterChain)
             throws IOException, ServletException {
         // If the request contains the prevent token, we must not reapply the definition.
         // This is used to ensure that filters mapped to wild cards do not infinately
@@ -238,7 +238,7 @@ public class TilesDecorationFilter implements Filter {
      * @param request The request object.
      * @return The final definition name.
      */
-    private String getDefinitionForRequest(javax.servlet.ServletRequest request) {
+    private String getDefinitionForRequest(jakarta.servlet.ServletRequest request) {
         if (alternateDefinitions.size() < 1) {
             return definitionName;
         }
@@ -258,9 +258,9 @@ public class TilesDecorationFilter implements Filter {
      * @param request The request object to use.
      * @return The request base.
      */
-    private String getRequestBase(javax.servlet.ServletRequest request) {
+    private String getRequestBase(jakarta.servlet.ServletRequest request) {
         // Included Path
-        String include = (String) request.getAttribute("javax.servlet.include.servlet_path");
+        String include = (String) request.getAttribute("jakarta.servlet.include.servlet_path");
         if (include != null) {
             return include;
         }
@@ -276,7 +276,7 @@ public class TilesDecorationFilter implements Filter {
     class DefaultMutator implements AttributeContextMutator {
 
         /** {@inheritDoc} */
-        public void mutate(AttributeContext ctx, javax.servlet.ServletRequest req) {
+        public void mutate(AttributeContext ctx, jakarta.servlet.ServletRequest req) {
             Attribute attr = new Attribute();
             attr.setRenderer("template");
             attr.setValue(getRequestBase(req));
@@ -290,7 +290,7 @@ public class TilesDecorationFilter implements Filter {
      * @param request The HTTP request object.
      * @return <code>true</code> if the token is present.
      */
-    private boolean isPreventTokenPresent(javax.servlet.ServletRequest request) {
+    private boolean isPreventTokenPresent(jakarta.servlet.ServletRequest request) {
         return preventDecorationToken != null && request.getAttribute(preventDecorationToken) != null;
     }
 }

@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -20,7 +20,7 @@
  */
 package org.apache.tiles.el;
 
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.beans.FeatureDescriptor;
@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.el.ELContext;
+import jakarta.el.ELContext;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.Request;
@@ -60,7 +60,7 @@ public class TilesContextBeanELResolverTest {
 
     /**
      * Test method for
-     * {@link TilesContextBeanELResolver#getCommonPropertyType(javax.el.ELContext, java.lang.Object)}.
+     * {@link TilesContextBeanELResolver#getCommonPropertyType(jakarta.el.ELContext, java.lang.Object)}.
      */
     @Test
     public void testGetCommonPropertyType() {
@@ -72,7 +72,7 @@ public class TilesContextBeanELResolverTest {
 
     /**
      * Test method for
-     * {@link TilesContextBeanELResolver#getFeatureDescriptors(javax.el.ELContext, java.lang.Object)}.
+     * {@link TilesContextBeanELResolver#getFeatureDescriptors(jakarta.el.ELContext, java.lang.Object)}.
      */
     @Test
     public void testGetFeatureDescriptors() {
@@ -133,7 +133,7 @@ public class TilesContextBeanELResolverTest {
 
     /**
      * Test method for
-     * {@link TilesContextBeanELResolver#getType(javax.el.ELContext, java.lang.Object, java.lang.Object)}.
+     * {@link TilesContextBeanELResolver#getType(jakarta.el.ELContext, java.lang.Object, java.lang.Object)}.
      */
     @Test
     public void testGetType() {
@@ -173,7 +173,7 @@ public class TilesContextBeanELResolverTest {
 
     /**
      * Test method for
-     * {@link TilesContextBeanELResolver#getValue(javax.el.ELContext, java.lang.Object, java.lang.Object)}.
+     * {@link TilesContextBeanELResolver#getValue(jakarta.el.ELContext, java.lang.Object, java.lang.Object)}.
      */
     @Test
     public void testGetValue() {
@@ -211,7 +211,7 @@ public class TilesContextBeanELResolverTest {
 
     /**
      * Test method for
-     * {@link TilesContextBeanELResolver#isReadOnly(javax.el.ELContext, java.lang.Object, java.lang.Object)}.
+     * {@link TilesContextBeanELResolver#isReadOnly(jakarta.el.ELContext, java.lang.Object, java.lang.Object)}.
      */
     @Test
     public void testIsReadOnlyELContextObjectObject() {
@@ -222,7 +222,7 @@ public class TilesContextBeanELResolverTest {
 
     /**
      * Test method for
-     * {@link TilesContextBeanELResolver#isReadOnly(javax.el.ELContext, java.lang.Object, java.lang.Object)}.
+     * {@link TilesContextBeanELResolver#isReadOnly(jakarta.el.ELContext, java.lang.Object, java.lang.Object)}.
      */
     @Test(expected = NullPointerException.class)
     public void testIsReadOnlyNPE() {
@@ -240,7 +240,7 @@ public class TilesContextBeanELResolverTest {
 
     /**
      * Test method for
-     * {@link TilesContextBeanELResolver#findObjectByProperty(javax.el.ELContext, java.lang.Object)}.
+     * {@link TilesContextBeanELResolver#findObjectByProperty(jakarta.el.ELContext, java.lang.Object)}.
      */
     @Test
     public void testFindObjectByProperty() {

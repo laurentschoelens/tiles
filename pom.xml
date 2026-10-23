@@ -4,12 +4,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -24,24 +24,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
+        <groupId>io.github.laurentschoelens.tiles</groupId>
         <artifactId>tiles-master</artifactId>
-        <groupId>org.apache.tiles</groupId>
-        <version>7</version>
+        <version>10.1</version>
         <relativePath />
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.apache.tiles</groupId>
+    <groupId>io.github.laurentschoelens.tiles</groupId>
     <artifactId>tiles-parent</artifactId>
-    <version>3.1-SNAPSHOT</version>
+    <version>4.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Tiles 3</name>
-    <description>Tiles 3: A framework for page composition.</description>
+    <name>Tiles 4</name>
+    <description>Tiles 4: A framework for page composition.</description>
     <url>http://tiles.apache.org/framework/</url>
+
     <scm>
-        <connection>scm:svn:http://svn.apache.org/repos/asf/tiles/framework/trunk/</connection>
-        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/tiles/framework/trunk/</developerConnection>
-        <url>http://svn.apache.org/viewvc/tiles/framework/trunk/</url>
+        <connection>scm:git:https://github.com/laurentschoelens/tiles.git</connection>
+        <developerConnection>scm:git:https://github.com/laurentschoelens/tiles.git</developerConnection>
+        <url>https://github.com/laurentschoelens/tiles</url>
+        <tag>HEAD</tag>
     </scm>
 
     <ciManagement />
@@ -52,8 +54,8 @@
         <module>tiles-template</module>
         <module>tiles-servlet</module>
         <module>tiles-jsp</module>
-        <module>tiles-freemarker</module>
-        <module>tiles-velocity</module>
+        <!--<module>tiles-freemarker</module>-->
+        <!--<module>tiles-velocity</module>-->
         <module>tiles-el</module>
         <module>tiles-mvel</module>
         <module>tiles-ognl</module>
@@ -64,44 +66,42 @@
     </modules>
 
     <issueManagement>
-        <system>JIRA</system>
-        <url>https://issues.apache.org/jira/browse/TILES</url>
-        <!-- dev@tiles.apache.org :: this line satisfies INFRA-3329 -->
+        <system>GITHUB</system>
+        <url>https://github.com/laurentschoelens/tiles/issues</url>
     </issueManagement>
 
-    <distributionManagement>
-        <site>
-            <id>apache-site</id>
-            <url>scp://people.apache.org/www/tiles.apache.org/framework</url>
-        </site>
-    </distributionManagement>
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.apache.tiles</groupId>
+                <groupId>io.github.laurentschoelens.tiles</groupId>
                 <artifactId>tiles-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.tiles</groupId>
+                <groupId>io.github.laurentschoelens.tiles</groupId>
                 <artifactId>tiles-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.tiles</groupId>
+                <groupId>io.github.laurentschoelens.tiles</groupId>
+                <artifactId>tiles-request-api</artifactId>
+                <version>${tiles.request.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.laurentschoelens.tiles</groupId>
                 <artifactId>tiles-servlet</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.tiles</groupId>
+                <groupId>io.github.laurentschoelens.tiles</groupId>
                 <artifactId>tiles-template</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-tools</artifactId>
-                <version>2.0</version>
+                <groupId>org.apache.velocity.tools</groupId>
+                <artifactId>velocity-tools-view</artifactId>
+                <version>3.1</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>struts-taglib</artifactId>
@@ -147,9 +147,9 @@
             </dependency>
 
             <dependency>
-                <groupId>commons-digester</groupId>
-                <artifactId>commons-digester</artifactId>
-                <version>2.0</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-digester3</artifactId>
+                <version>3.2</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -160,47 +160,47 @@
             <dependency>
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
-                <version>2.3.15</version>
+                <version>2.3.32</version>
             </dependency>
 
             <dependency>
                 <groupId>ognl</groupId>
                 <artifactId>ognl</artifactId>
-                <version>2.7.3</version>
+                <version>3.3.4</version>
             </dependency>
             <dependency>
                 <groupId>org.mvel</groupId>
                 <artifactId>mvel2</artifactId>
-                <version>2.3.2.Final</version>
+                <version>2.4.15.Final</version>
             </dependency>
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>2.5</version>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>6.0.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>javax.servlet.jsp</groupId>
-                <artifactId>jsp-api</artifactId>
-                <version>2.1</version>
+                <groupId>jakarta.servlet.jsp</groupId>
+                <artifactId>jakarta.servlet.jsp-api</artifactId>
+                <version>3.1.1</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>javax.el</groupId>
-                <artifactId>el-api</artifactId>
-                <version>1.0</version>
+                <groupId>jakarta.el</groupId>
+                <artifactId>jakarta.el-api</artifactId>
+                <version>5.0.1</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.7</version>
+                <version>4.13.2</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.easymock</groupId>
                 <artifactId>easymock</artifactId>
-                <version>3.0</version>
+                <version>5.1.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -210,32 +210,21 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.easymock</groupId>
-                <artifactId>easymockclassextension</artifactId>
-                <version>3.0</version>
-                <scope>test</scope>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>2.0.6</version>
             </dependency>
             <dependency>
-            	<groupId>org.slf4j</groupId>
-            	<artifactId>slf4j-api</artifactId>
-            	<version>1.7.6</version>
-            </dependency>
-            <dependency>
-            	<groupId>org.slf4j</groupId>
-            	<artifactId>slf4j-jdk14</artifactId>
-            	<version>1.7.6</version>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jdk14</artifactId>
+                <version>2.0.6</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
-                <version>1.7.6</version>
+                <version>2.0.6</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-            	<groupId>org.apache.tiles</groupId>
-            	<artifactId>tiles-request-api</artifactId>
-            	<version>${tiles.request.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -258,7 +247,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>2.3.7</version>
+                    <version>5.1.8</version>
                     <inherited>true</inherited>
                 </plugin>
             </plugins>
@@ -312,15 +301,15 @@
 
     <properties>
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError> <!-- remove with master-8 -->
-        <tiles.osgi.symbolicName>org.apache.${project.artifactId}</tiles.osgi.symbolicName>
-        <tiles.osgi.export>org.apache.tiles.*;version=${project.version}</tiles.osgi.export>
+        <tiles.osgi.symbolicName>io.github.laurentschoelens.${project.artifactId}</tiles.osgi.symbolicName>
+        <tiles.osgi.export>io.github.laurentschoelens.tiles.*;version=${project.version}</tiles.osgi.export>
         <tiles.osgi.import>*</tiles.osgi.import>
         <tiles.osgi.dynamicImport />
         <tiles.osgi.private />
         <tiles.manifestfile>target/osgi/MANIFEST.MF</tiles.manifestfile>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tiles.request.version>1.0.7</tiles.request.version>
-        <tiles.autotag.version>1.1.0</tiles.autotag.version>
+        <tiles.request.version>2.0-SNAPSHOT</tiles.request.version>
+        <tiles.autotag.version>2.0</tiles.autotag.version>
     </properties>
 
     <dependencies />
@@ -332,9 +321,6 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-install-plugin</artifactId>
-                        <configuration>
-                            <createChecksum>true</createChecksum>
-                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>

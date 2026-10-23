@@ -4,12 +4,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -24,9 +24,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
-    <groupId>org.apache.tiles</groupId>
+    <groupId>io.github.laurentschoelens.tiles</groupId>
     <artifactId>tiles-parent</artifactId>
-    <version>3.1-SNAPSHOT</version>
+    <version>4.0-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -64,72 +64,78 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-request-servlet-wildcard</artifactId>
       <version>${tiles.request.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-request-mustache</artifactId>
       <version>${tiles.request.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-jsp</artifactId>
       <version>${project.version}</version>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.github.laurentschoelens.tiles</groupId>-->
+<!--      <artifactId>tiles-freemarker</artifactId>-->
+<!--      <version>${project.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>io.github.laurentschoelens.tiles</groupId>-->
+<!--      <artifactId>tiles-velocity</artifactId>-->
+<!--      <version>${project.version}</version>-->
+<!--    </dependency>-->
     <dependency>
-      <groupId>org.apache.tiles</groupId>
-      <artifactId>tiles-freemarker</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.tiles</groupId>
-      <artifactId>tiles-velocity</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-el</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-mvel</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-ognl</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-compat</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <artifactId>guava</artifactId>
       <groupId>com.google.guava</groupId>
-      <version>12.0.1</version>
+      <artifactId>guava</artifactId>
+      <version>31.1-jre</version>
     </dependency>
-
+    
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
       <scope>provided</scope>
     </dependency>
+
+    <dependency>
+        <groupId>jakarta.el</groupId>
+        <artifactId>jakarta.el-api</artifactId>
+        <scope>provided</scope>
+     </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -160,10 +166,5 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.easymock</groupId>
-      <artifactId>easymockclassextension</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>

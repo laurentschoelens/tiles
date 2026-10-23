@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -20,13 +20,14 @@
  */
 package org.apache.tiles.web.startup;
 
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.*;
 
 import java.util.Enumeration;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
 
 import org.apache.tiles.request.servlet.ServletApplicationContext;
 import org.apache.tiles.startup.TilesInitializer;
@@ -56,6 +57,7 @@ public class AbstractTilesInitializerServletTest {
         expect(config.getServletContext()).andReturn(servletContext);
         expect(servletContext.getInitParameterNames()).andReturn(names);
         expect(config.getInitParameterNames()).andReturn(names);
+        expect(config.getInitParameter(HttpServlet.LEGACY_DO_HEAD)).andReturn(Boolean.TRUE.toString());
         expect(names.hasMoreElements()).andReturn(false).times(2);
         initializer.initialize(isA(ServletApplicationContext.class));
         initializer.destroy();

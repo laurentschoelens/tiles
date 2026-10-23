@@ -20,7 +20,7 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tiles</groupId>
+  <groupId>io.github.laurentschoelens.tiles</groupId>
   <artifactId>tiles-assembly</artifactId>
   <packaging>pom</packaging>
   <name>Tiles Assembly</name>
@@ -28,9 +28,9 @@
   </description>
 
   <parent>
-    <groupId>org.apache.tiles</groupId>
+    <groupId>io.github.laurentschoelens.tiles</groupId>
     <artifactId>tiles-parent</artifactId>
-    <version>3.1-SNAPSHOT</version>
+    <version>4.0-SNAPSHOT</version>
   </parent>
 
   <scm>
@@ -118,7 +118,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.8</version>
             <executions>
               <execution>
                 <phase>deploy</phase>
@@ -126,7 +125,7 @@
                   <goal>run</goal>
                 </goals>
                 <configuration>
-                  <tasks>
+                  <target>
                     <mkdir dir="${project.build.directory}/assemblies" />
                     <echo message="Here I am!" />
                     <copy todir="${project.build.directory}/assemblies">
@@ -137,7 +136,7 @@
                       </fileset>
                       <mapper type="glob" from="tiles-assembly-*" to="tiles-*" />
                     </copy>
-                  </tasks>
+                  </target>
                 </configuration>
               </execution>
             </executions>
@@ -151,41 +150,41 @@
 
     <!-- Main Tiles packages -->
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-api</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-core</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-servlet</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-jsp</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-compat</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-test</artifactId>
       <version>${project.version}</version>
       <type>war</type>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
       <artifactId>tiles-extras</artifactId>
       <version>${project.version}</version>
       <type>jar</type>

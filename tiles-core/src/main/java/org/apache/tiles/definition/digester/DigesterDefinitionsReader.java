@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -27,8 +27,8 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.apache.commons.digester.Digester;
-import org.apache.commons.digester.Rule;
+import org.apache.commons.digester3.Digester;
+import org.apache.commons.digester3.Rule;
 import org.apache.tiles.Attribute;
 import org.apache.tiles.Definition;
 import org.apache.tiles.Expression;
@@ -148,7 +148,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Definition definition = (Definition) digester.peek();
+            Definition definition = (Definition) getDigester().peek();
             definition.setName(attributes.getValue("name"));
             definition.setPreparer(attributes.getValue("preparer"));
             String extendsAttribute = attributes.getValue("extends");
@@ -180,7 +180,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Attribute attribute = (Attribute) digester.peek();
+            Attribute attribute = (Attribute) getDigester().peek();
             attribute.setValue(attributes.getValue("value"));
             String expression = attributes.getValue("expression");
             attribute.setExpressionObject(Expression
@@ -201,8 +201,8 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Attribute attribute = (Attribute) digester.peek(0);
-            Definition definition = (Definition) digester.peek(1);
+            Attribute attribute = (Attribute) getDigester().peek(0);
+            Definition definition = (Definition) getDigester().peek(1);
             definition.putAttribute(attributes.getValue("name"), attribute,
                     "true".equals(attributes.getValue("cascade")));
         }

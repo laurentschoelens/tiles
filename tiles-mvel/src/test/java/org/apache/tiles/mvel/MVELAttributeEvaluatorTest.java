@@ -2,12 +2,12 @@
  * $Id$
  *
  * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
+ * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership. The ASF licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -21,7 +21,7 @@
 package org.apache.tiles.mvel;
 
 import java.util.Arrays;
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.util.HashMap;
@@ -78,8 +78,8 @@ public class MVELAttributeEvaluatorTest {
         Map<String, Object> sessionScope = new HashMap<String, Object>();
         Map<String, Object> applicationScope = new HashMap<String, Object>();
         requestScope.put("object1", "value");
-        sessionScope.put("object2", new Integer(1));
-        applicationScope.put("object3", new Float(2.0));
+        sessionScope.put("object2", Integer.valueOf(1));
+        applicationScope.put("object3", Float.valueOf(2.0f));
         requestScope.put("paulaBean", new PaulaBean());
         request = createMock(Request.class);
         expect(request.getContext("request")).andReturn(requestScope)
@@ -116,19 +116,19 @@ public class MVELAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 attribute, request));
         attribute.setExpressionObject(new Expression("sessionScope.object2"));
-        assertEquals("The value is not correct", new Integer(1), evaluator
+        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("applicationScope.object3"));
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("object1"));
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 attribute, request));
         attribute.setExpressionObject(new Expression("object2"));
-        assertEquals("The value is not correct", new Integer(1), evaluator
+        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("object3"));
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("paulaBean.paula"));
         assertEquals("The value is not correct", "Brillant", evaluator
@@ -136,8 +136,8 @@ public class MVELAttributeEvaluatorTest {
         attribute.setExpressionObject(new Expression("'String literal'"));
         assertEquals("The value is not correct", "String literal", evaluator
                 .evaluate(attribute, request));
-        attribute.setValue(new Integer(2));
-        assertEquals("The value is not correct", new Integer(2), evaluator
+        attribute.setValue(Integer.valueOf(2));
+        assertEquals("The value is not correct", Integer.valueOf(2), evaluator
                 .evaluate(attribute, request));
         attribute.setValue("object1");
         assertEquals("The value has been evaluated", "object1", evaluator
@@ -154,19 +154,19 @@ public class MVELAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 expression, request));
         expression = "sessionScope.object2";
-        assertEquals("The value is not correct", new Integer(1), evaluator
+        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
                 .evaluate(expression, request));
         expression = "applicationScope.object3";
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator
                 .evaluate(expression, request));
         expression = "object1";
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 expression, request));
         expression = "object2";
-        assertEquals("The value is not correct", new Integer(1), evaluator
+        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
                 .evaluate(expression, request));
         expression = "object3";
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator
                 .evaluate(expression, request));
         expression = "paulaBean.paula";
         assertEquals("The value is not correct", "Brillant", evaluator
