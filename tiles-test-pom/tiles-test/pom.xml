@@ -161,7 +161,7 @@
            <plugin>
                <groupId>org.codehaus.cargo</groupId>
                <artifactId>cargo-maven2-plugin</artifactId>
-               <version>1.0.5</version>
+               <version>1.9.0</version>
                <configuration>
                    <container>
                        <containerId>jetty7x</containerId>
@@ -422,7 +422,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>wagon-maven-plugin</artifactId>
-                        <version>1.0-beta-4</version>
+                        <version>3.1.0</version>
                         <executions>
                             <execution>
                                 <phase>deploy</phase>
