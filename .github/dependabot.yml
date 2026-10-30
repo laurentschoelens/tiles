@@ -17,6 +17,12 @@ updates:
       # 0.9.0, 0.10.0 does not seem to produce central.zip
       - dependency-name: "org.sonatype.central:central-publishing-maven-plugin"
         versions: [ "0.9.0", "0.10.0" ]
+      - dependency-name: "jakarta.servlet:jakarta.servlet-api"
+        versions: [ "[6.1.0,)" ]
+      - dependency-name: "jakarta.servlet.jsp:jakarta.servlet.jsp-api"
+        versions: [ "[4.0.0,)" ]
+      - dependency-name: "jakarta.el:jakarta.el-api"
+        versions: [ "[6.0.0,)" ]
     groups:
       maven-plugins:
         patterns:
