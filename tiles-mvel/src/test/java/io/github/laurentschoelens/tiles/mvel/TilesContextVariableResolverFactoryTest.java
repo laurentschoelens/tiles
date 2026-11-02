@@ -95,9 +95,9 @@ public class TilesContextVariableResolverFactoryTest {
     @Test
     public void testCreateVariableResolver() {
         Map<String, String> header = createMock(Map.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put("one", 1);
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> applicationScope = new HashMap<>();
         applicationScope.put("two", 2);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);

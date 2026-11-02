@@ -55,7 +55,7 @@ public final class OptionsRendererTest {
         put(TilesAccess.CONTAINER_ATTRIBUTE, container);
     }};
 
-    private final Map<String, Object> requestScope = new HashMap<String, Object>();
+    private final Map<String, Object> requestScope = new HashMap<>();
 
     private final ApplicationResource template = new PostfixedApplicationResource("Result"){
         @Override

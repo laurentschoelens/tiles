@@ -71,7 +71,7 @@ public class PutListAttributeModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Request request = createMock(Request.class);
         Deque<Object> composeStack = new ArrayDeque<Object>();
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(ComposeStackUtil.COMPOSE_STACK_ATTRIBUTE_NAME, composeStack);
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);

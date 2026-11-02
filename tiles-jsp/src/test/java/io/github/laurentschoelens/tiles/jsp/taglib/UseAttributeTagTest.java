@@ -92,8 +92,8 @@ public class UseAttributeTagTest {
         expect(pageContext.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, PageContext.REQUEST_SCOPE)).andReturn(container);
         expect(container.getAttributeContext(isA(JspRequest.class))).andReturn(attributeContext);
         expect(attributeContext.getAttribute("name")).andReturn(attribute);
-        expect(container.evaluate(isA(Attribute.class), isA(JspRequest.class))).andReturn(Integer.valueOf(1));
-        pageContext.setAttribute("id", Integer.valueOf(1), PageContext.PAGE_SCOPE);
+        expect(container.evaluate(isA(Attribute.class), isA(JspRequest.class))).andReturn(1);
+        pageContext.setAttribute("id", 1, PageContext.PAGE_SCOPE);
         replay(jspBody, pageContext, parent,
                applicationContext, httpServletRequest, httpServletResponse,
                applicationScope, container, attributeContext, attribute);

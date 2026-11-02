@@ -487,7 +487,7 @@ public class BasicTilesContainerUnitTest {
         expect(templateAttribute.isPermitted(request)).andReturn(true);
         expect(rendererFactory.getRenderer("renderer")).andReturn(renderer);
         expect(attributeEvaluatorFactory.getAttributeEvaluator(templateAttribute)).andReturn(evaluator);
-        expect(evaluator.evaluate(templateAttribute, request)).andReturn(Integer.valueOf(1));
+        expect(evaluator.evaluate(templateAttribute, request)).andReturn(1);
 
         replay(applicationContext, attributeEvaluatorFactory, evaluator,
                 definitionsFactory, preparerFactory, rendererFactory, request,
@@ -537,12 +537,12 @@ public class BasicTilesContainerUnitTest {
         Attribute templateAttribute = createMock(Attribute.class);
 
         expect(attributeEvaluatorFactory.getAttributeEvaluator(templateAttribute)).andReturn(evaluator);
-        expect(evaluator.evaluate(templateAttribute, request)).andReturn(Integer.valueOf(1));
+        expect(evaluator.evaluate(templateAttribute, request)).andReturn(1);
 
         replay(applicationContext, attributeEvaluatorFactory,
                 definitionsFactory, preparerFactory, rendererFactory, request,
                 templateAttribute, evaluator);
-        assertEquals(Integer.valueOf(1), container.evaluate(templateAttribute, request));
+        assertEquals(1, container.evaluate(templateAttribute, request));
         verify(applicationContext, attributeEvaluatorFactory,
                 definitionsFactory, preparerFactory, rendererFactory, request,
                 templateAttribute, evaluator);

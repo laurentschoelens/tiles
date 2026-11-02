@@ -103,7 +103,7 @@ public class TilesContextVariableResolverFactory extends
          * @param descriptor The property descriptor.
          * @since 2.2.0
          */
-        public RequestVariableResolver(String name, PropertyDescriptor descriptor) {
+        RequestVariableResolver(String name, PropertyDescriptor descriptor) {
             super(name);
             this.descriptor = descriptor;
         }
@@ -159,7 +159,7 @@ public class TilesContextVariableResolverFactory extends
          * @param descriptor The property descriptor.
          * @since 2.2.0
          */
-        public ApplicationVariableResolver(String name, PropertyDescriptor descriptor) {
+        ApplicationVariableResolver(String name, PropertyDescriptor descriptor) {
             super(name);
             this.descriptor = descriptor;
         }

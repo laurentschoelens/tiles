@@ -70,7 +70,7 @@ public class AddAttributeModelTest {
         ListAttribute listAttribute = new ListAttribute();
         Attribute attribute;
         composeStack.push(listAttribute);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(ComposeStackUtil.COMPOSE_STACK_ATTRIBUTE_NAME, composeStack);
 
         expect(request.getContext("request")).andReturn(requestScope).times(2);

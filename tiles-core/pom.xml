@@ -39,7 +39,7 @@
   <properties>
       <tiles.osgi.symbolicName>io.github.laurentschoelens.tiles.core</tiles.osgi.symbolicName>
       <!-- decrease this whenever possible -->
-      <checkstyle.maxAllowedViolations>25</checkstyle.maxAllowedViolations>
+      <checkstyle.maxAllowedViolations>0</checkstyle.maxAllowedViolations>
   </properties>
 
   <build>

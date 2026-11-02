@@ -52,7 +52,7 @@ public class AbstractDefaultToStringRenderableTest {
         Context velociContext = createMock(Context.class);
         HttpServletRequest request = createMock(HttpServletRequest.class);
         HttpServletResponse response = createMock(HttpServletResponse.class);
-        Map<String, Object> params = new HashMap<String, Object>();
+        Map<String, Object> params = new HashMap<>();
 
         replay(velociContext, request, response);
         DefaultRenderable renderable = new DefaultRenderable(velociContext,
@@ -72,7 +72,7 @@ public class AbstractDefaultToStringRenderableTest {
         Context velociContext = createMock(Context.class);
         HttpServletRequest request = createMock(HttpServletRequest.class);
         HttpServletResponse response = createMock(HttpServletResponse.class);
-        Map<String, Object> params = new HashMap<String, Object>();
+        Map<String, Object> params = new HashMap<>();
         params.put("one", "value1");
 
         replay(velociContext, request, response);

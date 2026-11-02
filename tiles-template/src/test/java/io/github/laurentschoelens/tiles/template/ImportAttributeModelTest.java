@@ -74,7 +74,7 @@ public class ImportAttributeModelTest {
         Attribute attribute = new Attribute();
         Request request = createMock(Request.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -102,7 +102,7 @@ public class ImportAttributeModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Attribute attribute = new Attribute();
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -138,7 +138,7 @@ public class ImportAttributeModelTest {
         localNames.add("myName1");
         localNames.add("myName3");
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -173,7 +173,7 @@ public class ImportAttributeModelTest {
         Request request = createMock(Request.class);
         AttributeContext attributeContext = createMock(AttributeContext.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -200,7 +200,7 @@ public class ImportAttributeModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Attribute attribute = new Attribute();
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -228,7 +228,7 @@ public class ImportAttributeModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Attribute attribute = new Attribute();
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -255,7 +255,7 @@ public class ImportAttributeModelTest {
         Request request = createMock(Request.class);
         AttributeContext attributeContext = createMock(AttributeContext.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -279,7 +279,7 @@ public class ImportAttributeModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Attribute attribute = new Attribute();
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);
@@ -304,7 +304,7 @@ public class ImportAttributeModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Attribute attribute = new Attribute();
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getApplicationContext()).andReturn(applicationContext);

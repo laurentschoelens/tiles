@@ -86,6 +86,8 @@ public abstract class BaseLocaleUrlDefinitionDAO implements
 
     /**
      * Constructor.
+     *
+     * @param applicationContext The application context
      */
     public BaseLocaleUrlDefinitionDAO(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
@@ -95,8 +97,8 @@ public abstract class BaseLocaleUrlDefinitionDAO implements
     public void setSources(List<ApplicationResource> sources) {
         // filter out any sources that are already localized
         ArrayList<ApplicationResource> defaultSources = new ArrayList<ApplicationResource>();
-        for(ApplicationResource source: sources) {
-            if(Locale.ROOT.equals(source.getLocale())) {
+        for (ApplicationResource source : sources) {
+            if (Locale.ROOT.equals(source.getLocale())) {
                 defaultSources.add(source);
             }
         }

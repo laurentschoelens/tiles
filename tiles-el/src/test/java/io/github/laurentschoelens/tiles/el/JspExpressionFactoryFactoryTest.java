@@ -69,7 +69,7 @@ public class JspExpressionFactoryFactoryTest {
     @Test(expected = IllegalArgumentException.class)
     public void testSetApplicationContextIllegal() {
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Integer servletContext = Integer.valueOf(1);
+        Integer servletContext = 1;
 
         expect(applicationContext.getContext()).andReturn(servletContext);
 

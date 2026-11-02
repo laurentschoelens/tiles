@@ -82,12 +82,12 @@ public class OGNLAttributeEvaluatorTest {
         PropertyAccessor tilesRequestAccessor = new DelegatePropertyAccessor<Request>(factory);
         OgnlRuntime.setPropertyAccessor(Request.class, tilesRequestAccessor);
         evaluator = new OGNLAttributeEvaluator();
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> sessionScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put("object1", "value");
-        sessionScope.put("object2", Integer.valueOf(1));
-        applicationScope.put("object3", new Float(2.0));
+        sessionScope.put("object2", 1);
+        applicationScope.put("object3", 2.0f);
         requestScope.put("paulaBean", new PaulaBean());
         request = createMock(Request.class);
         expect(request.getContext("request")).andReturn(requestScope)
@@ -125,19 +125,19 @@ public class OGNLAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 attribute, request));
         attribute.setExpressionObject(new Expression("sessionScope.object2"));
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("applicationScope.object3"));
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", 2.0f, evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("object1"));
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 attribute, request));
         attribute.setExpressionObject(new Expression("object2"));
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("object3"));
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", 2.0f, evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("paulaBean.paula"));
         assertEquals("The value is not correct", "Brillant", evaluator
@@ -145,8 +145,8 @@ public class OGNLAttributeEvaluatorTest {
         attribute.setExpressionObject(new Expression("'String literal'"));
         assertEquals("The value is not correct", "String literal", evaluator
                 .evaluate(attribute, request));
-        attribute.setValue(Integer.valueOf(2));
-        assertEquals("The value is not correct", Integer.valueOf(2), evaluator
+        attribute.setValue(2);
+        assertEquals("The value is not correct", 2, evaluator
                 .evaluate(attribute, request));
         attribute.setValue("object1");
         assertEquals("The value has been evaluated", "object1", evaluator
@@ -162,19 +162,19 @@ public class OGNLAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 expression, request));
         expression = "sessionScope.object2";
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(expression, request));
         expression = "applicationScope.object3";
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", 2.0f, evaluator
                 .evaluate(expression, request));
         expression = "object1";
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 expression, request));
         expression = "object2";
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(expression, request));
         expression = "object3";
-        assertEquals("The value is not correct", new Float(2.0), evaluator
+        assertEquals("The value is not correct", 2.0f, evaluator
                 .evaluate(expression, request));
         expression = "paulaBean.paula";
         assertEquals("The value is not correct", "Brillant", evaluator

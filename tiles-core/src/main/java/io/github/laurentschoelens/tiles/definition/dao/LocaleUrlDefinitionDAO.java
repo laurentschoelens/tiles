@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 import io.github.laurentschoelens.tiles.Definition;
 import io.github.laurentschoelens.tiles.request.ApplicationContext;
@@ -88,12 +89,7 @@ public class LocaleUrlDefinitionDAO extends BaseLocaleUrlDefinitionDAO {
      * @return the list of its ancestors.
      */
     private ArrayList<Locale> computeLocales(Locale customizationKey) {
-        Locale postfix;
-        if(customizationKey == null) {
-            postfix = Locale.ROOT;
-        } else {
-            postfix = customizationKey;
-        }
+        Locale postfix = Objects.requireNonNullElse(customizationKey, Locale.ROOT);
         ArrayList<Locale> postfixes = new ArrayList<Locale>();
         while (postfix != null) {
             postfixes.add(postfix);

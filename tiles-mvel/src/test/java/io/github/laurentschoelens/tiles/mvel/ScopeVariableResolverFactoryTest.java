@@ -89,10 +89,10 @@ public class ScopeVariableResolverFactoryTest {
      */
     @Test
     public void testCreateVariableResolver() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put("one", 1);
         expect(request.getContext("request")).andReturn(requestScope).times(2);
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> applicationScope = new HashMap<>();
         applicationScope.put("two", 2);
         expect(request.getContext("application")).andReturn(applicationScope);
 

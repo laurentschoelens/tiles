@@ -75,7 +75,7 @@ public class TilesContextBeanVariableResolverFactory extends
          * @param name The name of the attribute.
          * @since 2.2.0
          */
-        public TilesContextBeanVariableResolver(String name) {
+        TilesContextBeanVariableResolver(String name) {
             super(name);
         }
 

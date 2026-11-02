@@ -216,7 +216,7 @@ public final class PatternUtil {
 
             // replace them with markers
             List<String> originals = new ArrayList<String>();
-            for(Matcher m = INVALID_FORMAT_ELEMENT.matcher(st); m.find() ; m = INVALID_FORMAT_ELEMENT.matcher(st)) {
+            for (Matcher m = INVALID_FORMAT_ELEMENT.matcher(st); m.find(); m = INVALID_FORMAT_ELEMENT.matcher(st)) {
                 originals.add(m.group());
                 st = m.replaceFirst("INVALID_FORMAT_ELEMENT");
             }
@@ -235,7 +235,7 @@ public final class PatternUtil {
 
     private static Object[] replaceNullsWithBlank(Object[] varsOrig) {
         Object[] vars = new Object[varsOrig.length];
-        for(int i = 0; i < varsOrig.length; ++i) {
+        for (int i = 0; i < varsOrig.length; ++i) {
             vars[i] = null != varsOrig[i] ? varsOrig[i] : "";
         }
         return vars;

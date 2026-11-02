@@ -48,9 +48,9 @@ public class SetCurrentContainerModelTest {
         Request request = createMock(Request.class);
         ApplicationContext context = createMock(ApplicationContext.class);
         TilesContainer container = createMock(TilesContainer.class);
-        Map<String, Object> attribs = new HashMap<String, Object>();
+        Map<String, Object> attribs = new HashMap<>();
         attribs.put("myKey", container);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
 
         expect(context.getApplicationScope()).andReturn(attribs).anyTimes();
         expect(request.getContext("request")).andReturn(requestScope);
@@ -69,7 +69,7 @@ public class SetCurrentContainerModelTest {
     public void testSetCurrentContainerException() {
         Request request = createMock(Request.class);
         ApplicationContext context = createMock(ApplicationContext.class);
-        Map<String, Object> attribs = new HashMap<String, Object>();
+        Map<String, Object> attribs = new HashMap<>();
 
         expect(request.getApplicationContext()).andReturn(context);
         expect(context.getApplicationScope()).andReturn(attribs).anyTimes();

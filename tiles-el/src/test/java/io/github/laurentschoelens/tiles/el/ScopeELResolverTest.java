@@ -63,7 +63,7 @@ public class ScopeELResolverTest {
         ELContext elContext = createMock(ELContext.class);
 
         replay(elContext);
-        assertNull(resolver.getCommonPropertyType(elContext, Integer.valueOf(1)));
+        assertNull(resolver.getCommonPropertyType(elContext, 1));
         assertEquals(Map.class, resolver.getCommonPropertyType(elContext, null));
         verify(elContext);
     }
@@ -80,7 +80,7 @@ public class ScopeELResolverTest {
         expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] {"one", "two"}));
 
         replay(elContext, request);
-        assertFalse(resolver.getFeatureDescriptors(elContext, Integer.valueOf(1)).hasNext());
+        assertFalse(resolver.getFeatureDescriptors(elContext, 1).hasNext());
         Iterator<FeatureDescriptor> descriptors = resolver.getFeatureDescriptors(elContext, null);
         FeatureDescriptor descriptor = descriptors.next();
         assertEquals("oneScope", descriptor.getName());
@@ -102,7 +102,7 @@ public class ScopeELResolverTest {
         replay(request, applicationContext);
         context.putContext(Request.class, request);
         context.putContext(ApplicationContext.class, applicationContext);
-        assertNull(resolver.getType(context, Integer.valueOf(1), "whatever"));
+        assertNull(resolver.getType(context, 1, "whatever"));
         assertEquals("The requestScope object is not a map.", Map.class,
                 resolver.getType(context, null, "requestScope"));
         assertEquals("The sessionScope object is not a map.", Map.class,
@@ -117,11 +117,11 @@ public class ScopeELResolverTest {
      */
     @Test
     public void testGetValue() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put("objectKey", "objectValue");
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
+        Map<String, Object> sessionScope = new HashMap<>();
         sessionScope.put("sessionObjectKey", "sessionObjectValue");
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> applicationScope = new HashMap<>();
         applicationScope.put("applicationObjectKey", "applicationObjectValue");
         Request request = createMock(Request.class);
         expect(request.getContext("request")).andReturn(requestScope);
@@ -132,7 +132,7 @@ public class ScopeELResolverTest {
         replay(request, applicationContext);
         context.putContext(Request.class, request);
         context.putContext(ApplicationContext.class, applicationContext);
-        assertNull(resolver.getValue(context, Integer.valueOf(1), "whatever"));
+        assertNull(resolver.getValue(context, 1, "whatever"));
         assertEquals("The requestScope map does not correspond", requestScope,
                 resolver.getValue(context, null, "requestScope"));
         assertEquals("The sessionScope map does not correspond", sessionScope,

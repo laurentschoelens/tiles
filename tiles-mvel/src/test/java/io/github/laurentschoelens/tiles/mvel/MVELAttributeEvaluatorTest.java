@@ -74,11 +74,11 @@ public class MVELAttributeEvaluatorTest {
                         requestHolder));
         evaluator = new MVELAttributeEvaluator(requestHolder,
                 variableResolverFactory);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> sessionScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put("object1", "value");
-        sessionScope.put("object2", Integer.valueOf(1));
+        sessionScope.put("object2", 1);
         applicationScope.put("object3", Float.valueOf(2.0f));
         requestScope.put("paulaBean", new PaulaBean());
         request = createMock(Request.class);
@@ -116,7 +116,7 @@ public class MVELAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 attribute, request));
         attribute.setExpressionObject(new Expression("sessionScope.object2"));
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("applicationScope.object3"));
         assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator
@@ -125,7 +125,7 @@ public class MVELAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 attribute, request));
         attribute.setExpressionObject(new Expression("object2"));
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(attribute, request));
         attribute.setExpressionObject(new Expression("object3"));
         assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator
@@ -136,8 +136,8 @@ public class MVELAttributeEvaluatorTest {
         attribute.setExpressionObject(new Expression("'String literal'"));
         assertEquals("The value is not correct", "String literal", evaluator
                 .evaluate(attribute, request));
-        attribute.setValue(Integer.valueOf(2));
-        assertEquals("The value is not correct", Integer.valueOf(2), evaluator
+        attribute.setValue(2);
+        assertEquals("The value is not correct", 2, evaluator
                 .evaluate(attribute, request));
         attribute.setValue("object1");
         assertEquals("The value has been evaluated", "object1", evaluator
@@ -154,7 +154,7 @@ public class MVELAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 expression, request));
         expression = "sessionScope.object2";
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(expression, request));
         expression = "applicationScope.object3";
         assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator
@@ -163,7 +163,7 @@ public class MVELAttributeEvaluatorTest {
         assertEquals("The value is not correct", "value", evaluator.evaluate(
                 expression, request));
         expression = "object2";
-        assertEquals("The value is not correct", Integer.valueOf(1), evaluator
+        assertEquals("The value is not correct", 1, evaluator
                 .evaluate(expression, request));
         expression = "object3";
         assertEquals("The value is not correct", Float.valueOf(2.0f), evaluator

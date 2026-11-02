@@ -96,10 +96,10 @@ public class TilesContainerWrapperTest {
         Request request = createMock(Request.class);
         Attribute attribute = createMock(Attribute.class);
 
-        expect(container.evaluate(attribute, request)).andReturn(Integer.valueOf(1));
+        expect(container.evaluate(attribute, request)).andReturn(1);
 
         replay(container, request, attribute);
-        assertEquals(Integer.valueOf(1), wrapper.evaluate(attribute, request));
+        assertEquals(1, wrapper.evaluate(attribute, request));
         verify(container, request, attribute);
     }
 

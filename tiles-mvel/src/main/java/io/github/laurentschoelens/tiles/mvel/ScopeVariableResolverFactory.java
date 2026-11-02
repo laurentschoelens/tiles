@@ -85,7 +85,7 @@ public class ScopeVariableResolverFactory extends
          * @param name The name of the attribute.
          * @since 2.2.0
          */
-        public ScopeVariableResolver(String name) {
+        ScopeVariableResolver(String name) {
             super(name);
         }
 

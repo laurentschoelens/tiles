@@ -108,8 +108,8 @@ public class VelocityStyleTilesToolTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
         Attribute attribute = new Attribute("myValue");
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);
@@ -186,8 +186,8 @@ public class VelocityStyleTilesToolTest {
         StringWriter writer = new StringWriter();
         Attribute attribute = new Attribute("myValue");
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);
@@ -218,8 +218,8 @@ public class VelocityStyleTilesToolTest {
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
         StringWriter writer = new StringWriter();
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);
@@ -249,8 +249,8 @@ public class VelocityStyleTilesToolTest {
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
         StringWriter writer = new StringWriter();
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);
@@ -278,8 +278,8 @@ public class VelocityStyleTilesToolTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);
@@ -307,8 +307,8 @@ public class VelocityStyleTilesToolTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);
@@ -335,8 +335,8 @@ public class VelocityStyleTilesToolTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
 
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);
@@ -363,10 +363,10 @@ public class VelocityStyleTilesToolTest {
     public void testSetCurrentContainer() {
         TilesContainer container = createMock(TilesContainer.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> applicationScope = new HashMap<>();
         applicationScope.put("myKey", container);
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
         request.setAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
         expect(request.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME)).andReturn(container);

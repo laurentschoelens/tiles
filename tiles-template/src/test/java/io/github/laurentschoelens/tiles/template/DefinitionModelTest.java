@@ -73,7 +73,7 @@ public class DefinitionModelTest {
         Deque<Object> composeStack = new ArrayDeque<Object>();
         Attribute attribute = new Attribute();
         composeStack.push(attribute);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(ComposeStackUtil.COMPOSE_STACK_ATTRIBUTE_NAME, composeStack);
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);

@@ -66,7 +66,7 @@ public class AddListAttributeModelTest {
     public void testExecute() throws IOException {
         Deque<Object> composeStack = new ArrayDeque<Object>();
         Request request = createMock(Request.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         ModelBody modelBody = createMock(ModelBody.class);
 
         modelBody.evaluateWithoutWriting();

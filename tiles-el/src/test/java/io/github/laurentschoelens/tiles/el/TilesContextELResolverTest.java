@@ -85,7 +85,7 @@ public class TilesContextELResolverTest {
     @Test
     public void testGetFeatureDescriptorsELContextObject() {
         replay(beanElResolver);
-        assertNull(resolver.getFeatureDescriptors(null, Integer.valueOf(1)));
+        assertNull(resolver.getFeatureDescriptors(null, 1));
         Map<String, PropertyDescriptor> expected = new LinkedHashMap<String, PropertyDescriptor>();
         ClassUtil.collectBeanInfo(Request.class, expected);
         ClassUtil.collectBeanInfo(ApplicationContext.class, expected);
@@ -119,7 +119,7 @@ public class TilesContextELResolverTest {
         expectLastCall().times(2);
 
         replay(beanElResolver, elContext, request, applicationContext);
-        assertNull(resolver.getType(elContext, Integer.valueOf(1), "whatever"));
+        assertNull(resolver.getType(elContext, 1, "whatever"));
         assertEquals(Boolean.class, resolver.getType(elContext, null, "responseCommitted"));
         assertEquals(Map.class, resolver.getType(elContext, null, "initParams"));
         verify(beanElResolver, elContext, request, applicationContext);
@@ -144,7 +144,7 @@ public class TilesContextELResolverTest {
         expectLastCall().times(2);
 
         replay(beanElResolver, elContext, request, applicationContext, map);
-        assertNull(resolver.getValue(elContext, Integer.valueOf(1), "whatever"));
+        assertNull(resolver.getValue(elContext, 1, "whatever"));
         assertEquals(true, resolver.getValue(elContext, null, "responseCommitted"));
         assertEquals(map, resolver.getValue(elContext, null, "initParams"));
         verify(beanElResolver, elContext, request, applicationContext, map);

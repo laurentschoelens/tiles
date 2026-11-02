@@ -83,6 +83,7 @@ public class CachingLocaleUrlDefinitionDAO extends BaseLocaleUrlDefinitionDAO
     /**
      * Constructor.
      *
+     * @param applicationContext The application context
      * @since 2.1.0
      */
     public CachingLocaleUrlDefinitionDAO(ApplicationContext applicationContext) {

@@ -80,7 +80,7 @@ public class GetAsStringModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Request request = createMock(Request.class);
         Writer writer = createMock(Writer.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         Deque<Object> composeStack = new ArrayDeque<Object>();
         requestScope.put(ComposeStackUtil.COMPOSE_STACK_ATTRIBUTE_NAME, composeStack);
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);
@@ -118,7 +118,7 @@ public class GetAsStringModelTest {
         AttributeContext attributeContext = createMock(AttributeContext.class);
         Request request = createMock(Request.class);
         Writer writer = createMock(Writer.class);
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         Deque<Object> composeStack = new ArrayDeque<Object>();
         requestScope.put(ComposeStackUtil.COMPOSE_STACK_ATTRIBUTE_NAME, composeStack);
         requestScope.put(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, container);

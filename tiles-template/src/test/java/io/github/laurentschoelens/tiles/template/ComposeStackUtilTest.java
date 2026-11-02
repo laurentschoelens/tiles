@@ -56,11 +56,11 @@ public class ComposeStackUtilTest {
      */
     @Test
     public void testFindAncestorWithClass() {
-        Deque<Object> composeStack = new ArrayDeque<Object>();
-        Integer integerValue = Integer.valueOf(1);
-        Long longValue = new Long(LONG_VALUE);
+        Deque<Object> composeStack = new ArrayDeque<>();
+        Integer integerValue = 1;
+        Long longValue = LONG_VALUE;
         String stringValue = "my value";
-        Integer integerValue2 = Integer.valueOf(INT_VALUE);
+        Integer integerValue2 = INT_VALUE;
         composeStack.push(integerValue);
         composeStack.push(longValue);
         composeStack.push(stringValue);
@@ -79,7 +79,7 @@ public class ComposeStackUtilTest {
     public void testGetComposeStackNull() {
         Request request = createMock(Request.class);
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         expect(request.getContext("request")).andReturn(requestScope);
 
         replay(request);
@@ -97,7 +97,7 @@ public class ComposeStackUtilTest {
         @SuppressWarnings("unchecked")
         Deque<Object> composeStack = createMock(Deque.class);
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put(ComposeStackUtil.COMPOSE_STACK_ATTRIBUTE_NAME, composeStack);
         expect(request.getContext("request")).andReturn(requestScope);
 
@@ -113,7 +113,7 @@ public class ComposeStackUtilTest {
     public void testGetComposeStackNoNull() {
         Request request = createMock(Request.class);
 
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         expect(request.getContext("request")).andReturn(requestScope);
 
         replay(request);

@@ -85,12 +85,12 @@ public class TilesContextBeanVariableResolverFactoryTest {
      */
     @Test
     public void testCreateVariableResolver() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put("one", 1);
         expect(request.getContext("request")).andReturn(requestScope).anyTimes();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> applicationScope = new HashMap<>();
         applicationScope.put("two", 2);
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
+        Map<String, Object> sessionScope = new HashMap<>();
         sessionScope.put("three", "three");
         expect(request.getContext("session")).andReturn(sessionScope).anyTimes();
         expect(request.getAvailableScopes()).andReturn(
@@ -117,13 +117,13 @@ public class TilesContextBeanVariableResolverFactoryTest {
      */
     @Test
     public void testIsTarget() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
         requestScope.put("one", 1);
         expect(request.getContext("request")).andReturn(requestScope).times(
                 EXPECTED_REQUEST_CALLS);
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> applicationScope = new HashMap<>();
         applicationScope.put("two", 2);
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
+        Map<String, Object> sessionScope = new HashMap<>();
         sessionScope.put("three", "three");
         expect(request.getContext("session")).andReturn(sessionScope).times(
                 EXPECTED_SESSION_CALLS);

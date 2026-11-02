@@ -51,6 +51,9 @@ public class BasicPreparerFactory implements PreparerFactory {
      * Maps a preparer name to the instantiated preparer.
      */
     protected Map<String, ViewPreparer> preparers;
+    /**
+     * Set of known preparers.
+     */
     protected Set<String> knownPreparers;
 
     /**

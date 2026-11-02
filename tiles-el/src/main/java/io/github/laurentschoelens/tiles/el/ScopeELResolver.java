@@ -61,8 +61,7 @@ public class ScopeELResolver extends ELResolver {
     public Iterator<FeatureDescriptor> getFeatureDescriptors(ELContext context,
             Object base) {
         if (base != null) {
-            List<FeatureDescriptor> retValue = Collections.emptyList();
-            return retValue.iterator();
+            return Collections.emptyIterator();
         }
 
         List<FeatureDescriptor> list = new ArrayList<FeatureDescriptor>();
@@ -104,8 +103,7 @@ public class ScopeELResolver extends ELResolver {
         }
 
         Object retValue = null;
-        String propertyString = (String) property;
-        if (property instanceof String && propertyString.endsWith("Scope")) {
+        if (property instanceof String propertyString && propertyString.endsWith("Scope")) {
             Request request = (Request) context
                     .getContext(Request.class);
             retValue = request.getContext(propertyString.substring(0,

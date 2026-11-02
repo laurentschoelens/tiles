@@ -76,12 +76,12 @@ public class TilesContextBeanELResolverTest {
      */
     @Test
     public void testGetFeatureDescriptors() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> sessionScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put("object1", "value");
-        sessionScope.put("object2", Integer.valueOf(1));
-        applicationScope.put("object3", new Float(2.0));
+        sessionScope.put("object2", 1);
+        applicationScope.put("object3", 2.0f);
         Request request = createMock(Request.class);
         expect(request.getContext("request")).andReturn(requestScope)
                 .anyTimes();
@@ -137,12 +137,12 @@ public class TilesContextBeanELResolverTest {
      */
     @Test
     public void testGetType() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> sessionScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put("object1", "value");
-        sessionScope.put("object2", Integer.valueOf(1));
-        applicationScope.put("object3", new Float(2.0));
+        sessionScope.put("object2", 1);
+        applicationScope.put("object3", 2.0f);
         Request request = createMock(Request.class);
         expect(request.getContext("request")).andReturn(requestScope)
                 .anyTimes();
@@ -166,7 +166,7 @@ public class TilesContextBeanELResolverTest {
                 context, null, "object2"));
         assertEquals("The type is not correct", Float.class, resolver.getType(
                 context, null, "object3"));
-        assertNull(resolver.getType(context, Integer.valueOf(1), "whatever"));
+        assertNull(resolver.getType(context, 1, "whatever"));
         assertNull(resolver.getType(context, null, "object4"));
         verify(request, applicationContext);
     }
@@ -177,12 +177,12 @@ public class TilesContextBeanELResolverTest {
      */
     @Test
     public void testGetValue() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> sessionScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put("object1", "value");
-        sessionScope.put("object2", Integer.valueOf(1));
-        applicationScope.put("object3", new Float(2.0));
+        sessionScope.put("object2", 1);
+        applicationScope.put("object3", 2.0f);
         Request request = createMock(Request.class);
         expect(request.getContext("request")).andReturn(requestScope)
                 .anyTimes();
@@ -202,11 +202,11 @@ public class TilesContextBeanELResolverTest {
 
         assertEquals("The value is not correct", "value", resolver.getValue(
                 context, null, "object1"));
-        assertEquals("The value is not correct", Integer.valueOf(1), resolver
+        assertEquals("The value is not correct", 1, resolver
                 .getValue(context, null, "object2"));
-        assertEquals("The value is not correct", new Float(2.0), resolver
+        assertEquals("The value is not correct", 2.0f, resolver
                 .getValue(context, null, "object3"));
-        assertNull(resolver.getValue(context, Integer.valueOf(1), "whatever"));
+        assertNull(resolver.getValue(context, 1, "whatever"));
     }
 
     /**
@@ -244,12 +244,12 @@ public class TilesContextBeanELResolverTest {
      */
     @Test
     public void testFindObjectByProperty() {
-        Map<String, Object> requestScope = new HashMap<String, Object>();
-        Map<String, Object> sessionScope = new HashMap<String, Object>();
-        Map<String, Object> applicationScope = new HashMap<String, Object>();
+        Map<String, Object> requestScope = new HashMap<>();
+        Map<String, Object> sessionScope = new HashMap<>();
+        Map<String, Object> applicationScope = new HashMap<>();
         requestScope.put("object1", "value");
-        sessionScope.put("object2", Integer.valueOf(1));
-        applicationScope.put("object3", new Float(2.0));
+        sessionScope.put("object2", 1);
+        applicationScope.put("object3", 2.0f);
         Request request = createMock(Request.class);
         expect(request.getContext("request")).andReturn(requestScope)
                 .anyTimes();
@@ -269,9 +269,9 @@ public class TilesContextBeanELResolverTest {
 
         assertEquals("The value is not correct", "value", resolver
                 .findObjectByProperty(context, "object1"));
-        assertEquals("The value is not correct", Integer.valueOf(1), resolver
+        assertEquals("The value is not correct", 1, resolver
                 .findObjectByProperty(context, "object2"));
-        assertEquals("The value is not correct", new Float(2.0), resolver
+        assertEquals("The value is not correct", 2.0f, resolver
                 .findObjectByProperty(context, "object3"));
     }
 
@@ -281,7 +281,7 @@ public class TilesContextBeanELResolverTest {
      */
     @Test
     public void testGetObject() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("object1", "value");
         assertEquals("The value is not correct", "value", resolver.getObject(
                 map, "object1"));

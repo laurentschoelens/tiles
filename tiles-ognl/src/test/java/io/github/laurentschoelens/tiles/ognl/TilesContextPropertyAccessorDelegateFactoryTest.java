@@ -103,7 +103,7 @@ public class TilesContextPropertyAccessorDelegateFactoryTest {
         PropertyAccessor sessionScopePropertyAccessor = createMock(PropertyAccessor.class);
         PropertyAccessor applicationScopePropertyAccessor = createMock(PropertyAccessor.class);
         Request request = createMock(Request.class);
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("attribute", 1);
 
         replay(objectPropertyAccessor, applicationContextPropertyAccessor, requestScopePropertyAccessor,
@@ -130,7 +130,7 @@ public class TilesContextPropertyAccessorDelegateFactoryTest {
         PropertyAccessor sessionScopePropertyAccessor = createMock(PropertyAccessor.class);
         PropertyAccessor applicationScopePropertyAccessor = createMock(PropertyAccessor.class);
         Request request = createMock(Request.class);
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("attribute", 1);
 
         replay(objectPropertyAccessor, applicationContextPropertyAccessor, requestScopePropertyAccessor,
@@ -158,7 +158,7 @@ public class TilesContextPropertyAccessorDelegateFactoryTest {
         PropertyAccessor applicationScopePropertyAccessor = createMock(PropertyAccessor.class);
         Request request = createMock(Request.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("attribute", 1);
 
         replay(objectPropertyAccessor, applicationContextPropertyAccessor, requestScopePropertyAccessor,
@@ -186,7 +186,7 @@ public class TilesContextPropertyAccessorDelegateFactoryTest {
         PropertyAccessor applicationScopePropertyAccessor = createMock(PropertyAccessor.class);
         Request request = createMock(Request.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("anotherAttribute", 1);
 
         replay(objectPropertyAccessor, applicationContextPropertyAccessor, requestScopePropertyAccessor,
