@@ -20,8 +20,6 @@
  */
 package io.github.laurentschoelens.tiles.ognl;
 
-import java.util.Map;
-
 import ognl.OgnlContext;
 import ognl.PropertyAccessor;
 
@@ -40,7 +38,7 @@ public class ScopePropertyAccessor implements PropertyAccessor {
     static final int SCOPE_SUFFIX_LENGTH = 5;
 
     @Override
-    public Object getProperty(@SuppressWarnings("rawtypes") Map context, Object target, Object name) {
+    public Object getProperty(OgnlContext context, Object target, Object name) {
         Request request = (Request) target;
         String scope = (String) name;
         if (scope.endsWith("Scope")) {
@@ -68,7 +66,7 @@ public class ScopePropertyAccessor implements PropertyAccessor {
     }
 
     @Override
-    public void setProperty(@SuppressWarnings("rawtypes") Map context, Object target, Object name,
+    public void setProperty(OgnlContext context, Object target, Object name,
             Object value) {
         // Does nothing.
     }

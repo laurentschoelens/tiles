@@ -35,7 +35,7 @@ import io.github.laurentschoelens.tiles.request.Request;
 public class AnyScopePropertyAccessor implements PropertyAccessor {
 
     @Override
-    public Object getProperty(@SuppressWarnings("rawtypes") Map context, Object target, Object name) {
+    public Object getProperty(OgnlContext context, Object target, Object name) {
         Request request = (Request) target;
         String attributeName = (String) name;
         for (String scopeName : request.getAvailableScopes()) {
@@ -77,7 +77,7 @@ public class AnyScopePropertyAccessor implements PropertyAccessor {
     }
 
     @Override
-    public void setProperty(@SuppressWarnings("rawtypes") Map context, Object target, Object name,
+    public void setProperty(OgnlContext context, Object target, Object name,
             Object value) {
         Request request = (Request) target;
         String attributeName = (String) name;

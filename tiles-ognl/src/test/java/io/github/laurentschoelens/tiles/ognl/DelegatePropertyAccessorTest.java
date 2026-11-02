@@ -24,8 +24,6 @@ package io.github.laurentschoelens.tiles.ognl;
 import static org.junit.Assert.*;
 import static org.easymock.EasyMock.*;
 
-import java.util.Map;
-
 import ognl.OgnlContext;
 import ognl.OgnlException;
 import ognl.PropertyAccessor;
@@ -40,7 +38,7 @@ import org.junit.Test;
 public class DelegatePropertyAccessorTest {
 
     /**
-     * Test method for {@link DelegatePropertyAccessor#getProperty(java.util.Map, Object, Object)}.
+     * Test method for {@link DelegatePropertyAccessor#getProperty(ognl.OgnlContext, Object, Object)}.
      * @throws OgnlException If something goes wrong.
      */
     @SuppressWarnings("unchecked")
@@ -48,7 +46,7 @@ public class DelegatePropertyAccessorTest {
     public void testGetProperty() throws OgnlException {
         PropertyAccessorDelegateFactory<Integer> factory = createMock(PropertyAccessorDelegateFactory.class);
         PropertyAccessor mockAccessor = createMock(PropertyAccessor.class);
-        Map<String, Object> context = createMock(Map.class);
+        OgnlContext context = createMock(OgnlContext.class);
         expect(factory.getPropertyAccessor("property", 1)).andReturn(mockAccessor);
         expect(mockAccessor.getProperty(context, 1, "property")).andReturn("value");
 
@@ -59,7 +57,7 @@ public class DelegatePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link DelegatePropertyAccessor#setProperty(java.util.Map, Object, Object, Object)}.
+     * Test method for {@link DelegatePropertyAccessor#setProperty(ognl.OgnlContext, Object, Object, Object)}.
      * @throws OgnlException If something goes wrong.
      */
     @SuppressWarnings("unchecked")
@@ -67,7 +65,7 @@ public class DelegatePropertyAccessorTest {
     public void testSetProperty() throws OgnlException {
         PropertyAccessorDelegateFactory<Integer> factory = createMock(PropertyAccessorDelegateFactory.class);
         PropertyAccessor mockAccessor = createMock(PropertyAccessor.class);
-        Map<String, Object> context = createMock(Map.class);
+        OgnlContext context = createMock(OgnlContext.class);
         expect(factory.getPropertyAccessor("property", 1)).andReturn(mockAccessor);
         mockAccessor.setProperty(context, 1, "property", "value");
 

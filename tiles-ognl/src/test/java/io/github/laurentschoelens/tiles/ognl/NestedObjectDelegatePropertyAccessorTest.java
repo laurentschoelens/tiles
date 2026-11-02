@@ -24,8 +24,6 @@ package io.github.laurentschoelens.tiles.ognl;
 import static org.junit.Assert.*;
 import static org.easymock.EasyMock.*;
 
-import java.util.Map;
-
 import ognl.OgnlContext;
 import ognl.OgnlException;
 import ognl.PropertyAccessor;
@@ -40,7 +38,7 @@ import org.junit.Test;
 public class NestedObjectDelegatePropertyAccessorTest {
 
     /**
-     * Test method for {@link NestedObjectDelegatePropertyAccessor#getProperty(java.util.Map, Object, Object)}.
+     * Test method for {@link NestedObjectDelegatePropertyAccessor#getProperty(ognl.OgnlContext, Object, Object)}.
      * @throws OgnlException If something goes wrong.
      */
     @SuppressWarnings("unchecked")
@@ -48,7 +46,7 @@ public class NestedObjectDelegatePropertyAccessorTest {
     public void testGetProperty() throws OgnlException {
         NestedObjectExtractor<Integer> nestedObjectExtractor = createMock(NestedObjectExtractor.class);
         PropertyAccessor propertyAccessor = createMock(PropertyAccessor.class);
-        Map<String, Object> context = createMock(Map.class);
+        OgnlContext context = createMock(OgnlContext.class);
         expect(propertyAccessor.getProperty(context, "nested", "property")).andReturn("value");
         expect(nestedObjectExtractor.getNestedObject(1)).andReturn("nested");
 
@@ -60,7 +58,7 @@ public class NestedObjectDelegatePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link NestedObjectDelegatePropertyAccessor#setProperty(java.util.Map, Object, Object, Object)}.
+     * Test method for {@link NestedObjectDelegatePropertyAccessor#setProperty(ognl.OgnlContext, Object, Object, Object)}.
      * @throws OgnlException If something goes wrong.
      */
     @SuppressWarnings("unchecked")
@@ -68,7 +66,7 @@ public class NestedObjectDelegatePropertyAccessorTest {
     public void testSetProperty() throws OgnlException {
         NestedObjectExtractor<Integer> nestedObjectExtractor = createMock(NestedObjectExtractor.class);
         PropertyAccessor propertyAccessor = createMock(PropertyAccessor.class);
-        Map<String, Object> context = createMock(Map.class);
+        OgnlContext context = createMock(OgnlContext.class);
         propertyAccessor.setProperty(context, "nested", "property", "value");
         expect(nestedObjectExtractor.getNestedObject(1)).andReturn("nested");
 
