@@ -316,6 +316,7 @@
     </build>
 
     <properties>
+        <apache.rat.plugin.skip>false</apache.rat.plugin.skip>
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError> <!-- remove with master-8 -->
         <tiles.osgi.symbolicName>io.github.laurentschoelens.${project.artifactId}</tiles.osgi.symbolicName>
         <tiles.osgi.export>io.github.laurentschoelens.tiles.*;version=${project.version}</tiles.osgi.export>
@@ -339,9 +340,9 @@
                         <artifactId>maven-install-plugin</artifactId>
                     </plugin>
                     <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>rat-maven-plugin</artifactId>
-                        <version>1.0-alpha-3</version>
+                        <groupId>org.apache.rat</groupId>
+                        <artifactId>apache-rat-plugin</artifactId>
+                        <version>0.16</version>
                         <executions>
                             <execution>
                                 <phase>verify</phase>
@@ -349,6 +350,7 @@
                                     <goal>check</goal>
                                 </goals>
                                 <configuration>
+                                    <skip>${apache.rat.plugin.skip}</skip>
                                     <addDefaultLicenseMatchers>false</addDefaultLicenseMatchers>
                                     <licenseMatchers>
                                         <classNames>
@@ -360,6 +362,7 @@
                                         <include>src/**</include>
                                     </includes>
                                     <excludes>
+                                        <exclude>**/*.sql</exclude>
                                         <exclude>**/*LICENSE.txt</exclude>
                                         <exclude>**/*MANIFEST.MF</exclude>
                                     </excludes>

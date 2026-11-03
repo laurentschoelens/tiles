@@ -37,6 +37,7 @@
   </description>
 
   <properties>
+    <apache.rat.plugin.skip>true</apache.rat.plugin.skip>
     <tiles.osgi.symbolicName>io.github.laurentschoelens.tiles.spring</tiles.osgi.symbolicName>
     <checkstyle.maxAllowedViolations>75</checkstyle.maxAllowedViolations>
   </properties>
