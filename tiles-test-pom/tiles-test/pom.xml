@@ -386,62 +386,6 @@
                 <hostedqa.appConfigs>121</hostedqa.appConfigs>
             </properties>
         </profile>
-        <profile>
-            <id>apache-release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>rat-maven-plugin</artifactId>
-                        <version>1.0-alpha-3</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                                <configuration>
-                                    <addDefaultLicenseMatchers>false</addDefaultLicenseMatchers>
-                                    <licenseMatchers>
-                                        <classNames>
-                                            <className>rat.analysis.license.ApacheSoftwareLicense20</className>
-                                        </classNames>
-                                    </licenseMatchers>
-                                    <includes>
-                                        <include>pom.xml</include>
-                                        <include>src/**</include>
-                                    </includes>
-                                    <excludes>
-                                        <exclude>**/*.sql</exclude>
-                                        <exclude>**/*MANIFEST.MF</exclude>
-                                    </excludes>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>wagon-maven-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>upload</goal>
-                                </goals>
-                                <configuration>
-                                    <fromDir>${settings.localRepository}/io/github/laurentschoelens/tiles/tiles-test/${project.version}</fromDir>
-                                    <includes>tiles-test-${project.version}.war*</includes>
-                                    <toDir>${project.version}</toDir>
-                                    <serverId>tiles.build</serverId>
-                                    <url>scp://people.apache.org/www/people.apache.org/builds/tiles</url>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
     <repositories>
         <repository>
