@@ -30,13 +30,14 @@
   <parent>
     <groupId>io.github.laurentschoelens.tiles</groupId>
     <artifactId>tiles-parent</artifactId>
-    <version>4.0-SNAPSHOT</version>
+    <version>4.0</version>
   </parent>
 
   <scm>
     <connection>scm:svn:http://svn.apache.org/repos/asf/tiles/framework/trunk/assembly</connection>
     <developerConnection>scm:svn:https://svn.apache.org/repos/asf/tiles/framework/trunk/assembly</developerConnection>
     <url>http://svn.apache.org/viewcvs.cgi/tiles/framework/trunk/assembly</url>
+    <tag>tiles-parent-4.0</tag>
   </scm>
 
   <build>
