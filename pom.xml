@@ -307,7 +307,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <releaseProfiles>apache-release</releaseProfiles><!-- xxx tiles still uses "release" instead of "apache-release" -->
-                    <goals>deploy site-deploy</goals>
+                    <goals>deploy</goals>
                 </configuration>
             </plugin>
         </plugins>
