@@ -21,244 +21,536 @@
 
 package io.github.laurentschoelens.tiles.compat.definition.digester;
 
-import org.apache.commons.digester3.Digester;
-import org.apache.commons.digester3.Rule;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.Method;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import io.github.laurentschoelens.tiles.Attribute;
+import io.github.laurentschoelens.tiles.Definition;
+import io.github.laurentschoelens.tiles.ListAttribute;
 import io.github.laurentschoelens.tiles.beans.SimpleMenuItem;
+import io.github.laurentschoelens.tiles.definition.DefinitionsFactoryException;
 import io.github.laurentschoelens.tiles.definition.digester.DigesterDefinitionsReader;
-import org.xml.sax.Attributes;
 
 /**
- * Digester reader that can read Tiles 1.1, 1.2, 1.3, 1.4 and 2.0 files.
+ * Reads Tiles 1.1, 1.2, 1.3, 1.4, 2.0 and 3.0 definitions.
  *
- * @version $Rev$ $Date$
- * @since 2.1.0
+ * <p>This reader supports both the modern Tiles definitions syntax
+ * and the legacy component definitions and instances syntaxes.</p>
  */
-public class CompatibilityDigesterDefinitionsReader extends
-        DigesterDefinitionsReader {
+public class CompatibilityDigesterDefinitionsReader
+        extends DigesterDefinitionsReader {
 
     /**
-     * Intercepts a &lt;item&gt; tag.
+     * Legacy document syntax.
      */
-    private static final String ADD_WILDCARD = "*/item";
+    private enum Syntax {
+        /**
+         * Indicates the legacy Tiles definitions document syntax.
+         */
+        TILES_DEFINITIONS,
+        /**
+         * Legacy document syntax for component definition declarations.
+         */
+        COMPONENT_DEFINITIONS,
+        /**
+         * Legacy document syntax for component instance declarations.
+         */
+        COMPONENT_INSTANCES
+    }
 
     /**
-     * Intercepts a &lt;bean&gt; tag.
+     * Legacy document syntax currently being parsed.
      */
-    private static final String BEAN_TAG = "*/bean";
+    private Syntax syntax;
 
     /**
-     * The set of public identifiers, and corresponding resource names for the
-     * versions of the configuration file DTDs we know about. There <strong>MUST</strong>
-     * be an even number of Strings in this list!
-     *
-     * @since 2.1.0
+     * {@inheritDoc}
      */
-    protected String[] registrations;
-
-    /** {@inheritDoc} */
     @Override
-    protected void initSyntax(Digester digester) {
-        super.initSyntax(digester);
-        initDigesterForComponentsDefinitionsSyntax(digester);
-        initDigesterForInstancesSyntax(digester);
-        initDigesterForTilesDefinitionsSyntax(digester);
-        initDigesterForBeans(digester);
+    protected void parseDocument(Element root) {
+
+        if (root == null) {
+            throw new DefinitionsFactoryException(
+                    "Invalid XML document: missing root element.");
+        }
+
+        String rootName = getElementName(root);
+
+        switch (rootName) {
+            case "tiles-definitions":
+                syntax = Syntax.TILES_DEFINITIONS;
+                break;
+
+            case "component-definitions":
+                syntax = Syntax.COMPONENT_DEFINITIONS;
+                break;
+
+            case "component-instances":
+                syntax = Syntax.COMPONENT_INSTANCES;
+                break;
+
+            default:
+                throw new DefinitionsFactoryException(
+                        "Unsupported XML root element: " + rootName);
+        }
+
+        NodeList children = root.getChildNodes();
+
+        for (int i = 0; i < children.getLength(); i++) {
+
+            Node node = children.item(i);
+
+            if (node.getNodeType() != Node.ELEMENT_NODE) {
+                continue;
+            }
+
+            Element element = (Element) node;
+            String name = getElementName(element);
+
+            if (("definition".equals(name)
+                    && syntax != Syntax.COMPONENT_INSTANCES)
+                    || ("instance".equals(name)
+                    && syntax == Syntax.COMPONENT_INSTANCES)) {
+
+                parseDefinition(element, true);
+            }
+        }
     }
 
     /**
-     * Init digester for components syntax. This is an old set of rules, left
-     * for backward compatibility.
+     * {@inheritDoc}
      *
-     * @param digester Digester instance to use.
+     * Adds support for legacy put, putAttribute and putList elements.
+     *
+     * @param definition the definition
+     * @param elem the XML element
      */
-    private void initDigesterForComponentsDefinitionsSyntax(Digester digester) {
-        // Common constants
-        String definitionTag = "component-definitions/definition";
+    @Override
+    protected void parseDefinitionChildren(
+            Definition definition, Element elem) {
 
-        String putTag = definitionTag + "/put";
+        // First process the modern Tiles syntax.
+        super.parseDefinitionChildren(definition, elem);
 
-        String listTag = definitionTag + "/putList";
+        NodeList children = elem.getChildNodes();
 
-        String addListElementTag = listTag + "/add";
+        for (int i = 0; i < children.getLength(); i++) {
 
-        // syntax rules
-        digester.addObjectCreate(definitionTag, DEFINITION_HANDLER_CLASS);
-        digester.addRule(definitionTag, new FillDefinitionRule());
-        digester.addSetNext(definitionTag, "addDefinition",
-                DEFINITION_HANDLER_CLASS);
-        // put / putAttribute rules
-        digester.addObjectCreate(putTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addRule(putTag, new FillAttributeRule());
-        digester.addRule(putTag, new PutAttributeRule());
-        // list rules
-        digester.addObjectCreate(listTag, LIST_HANDLER_CLASS);
-        digester.addSetProperties(listTag);
-        digester.addRule(listTag, new PutAttributeRule());
-        // list elements rules
-        // We use Attribute class to avoid rewriting a new class.
-        // Name part can't be used in listElement attribute.
-        digester.addObjectCreate(addListElementTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addRule(addListElementTag, new FillAttributeRule());
-        digester.addSetNext(addListElementTag, "add",
-                PUT_ATTRIBUTE_HANDLER_CLASS);
+            Node node = children.item(i);
+
+            if (node.getNodeType() != Node.ELEMENT_NODE) {
+                continue;
+            }
+
+            Element child = (Element) node;
+            String tagName = getElementName(child);
+
+            switch (tagName) {
+
+                case "put":
+                case "putAttribute":
+                    putAttribute(definition, child);
+                    break;
+
+                case "putList":
+                    putLegacyListAttribute(definition, child);
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 
     /**
-     * Init digester for Tiles syntax. Same as components, but with first
-     * element = tiles-definitions
+     * Processes a legacy put or putAttribute element.
      *
-     * @param digester Digester instance to use.
+     * @param definition the definition
+     * @param elem the XML element
      */
-    private void initDigesterForTilesDefinitionsSyntax(Digester digester) {
-        // Common constants
-        String definitionTag = "tiles-definitions/definition";
+    private void putAttribute(Definition definition, Element elem) {
 
-        String putTag = definitionTag + "/put";
+        Attribute attribute = parseAttribute(elem);
 
-        // String LIST_TAG = DEFINITION_TAG + "/putList";
-        // List tag value
-        String listTag = "putList";
-        String definitionListTag = definitionTag + "/" + listTag;
-        // Tag value for adding an element in a list
-        String addListElementTag = "*/" + listTag + "/add";
-
-        // put / putAttribute rules
-        // Rules for a same pattern are called in order, but rule.end() are
-        // called
-        // in reverse order.
-        // SetNext and CallMethod use rule.end() method. So, placing SetNext in
-        // first position ensure it will be called last (sic).
-        digester.addObjectCreate(putTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addRule(putTag, new FillAttributeRule());
-        digester.addRule(putTag, new PutAttributeRule());
-        // Definition level list rules
-        // This is rules for lists nested in a definition
-        digester.addObjectCreate(definitionListTag, LIST_HANDLER_CLASS);
-        digester.addSetProperties(definitionListTag);
-        digester.addRule(definitionListTag, new PutAttributeRule());
-        // list elements rules
-        // We use Attribute class to avoid rewriting a new class.
-        // Name part can't be used in listElement attribute.
-        digester.addObjectCreate(addListElementTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addRule(addListElementTag, new FillAttributeRule());
-        digester.addSetNext(addListElementTag, "add",
-                PUT_ATTRIBUTE_HANDLER_CLASS);
-
-        // nested list elements rules
-        // Create a list handler, and add it to parent list
-        String nestedList = "*/" + listTag + "/" + listTag;
-        digester.addObjectCreate(nestedList, LIST_HANDLER_CLASS);
-        digester.addSetProperties(nestedList);
-        digester.addSetNext(nestedList, "add", PUT_ATTRIBUTE_HANDLER_CLASS);
+        definition.putAttribute(
+                getAttributeValue(elem, "name"),
+                attribute,
+                "true".equals(getAttributeValue(elem, "cascade")));
     }
 
     /**
-     * Init digester in order to parse instances definition file syntax.
-     * Instances is an old name for "definition". This method is left for
-     * backwards compatibility.
+     * Processes a legacy putList element.
+     * <p>
+     * Tiles component definitions and Tiles definitions use ListAttribute.
+     * Tiles component instances historically use Attribute.
      *
-     * @param digester Digester instance to use.
+     * @param definition the definition
+     * @param elem the XML element
      */
-    private void initDigesterForInstancesSyntax(Digester digester) {
-        // Build a digester to process our configuration resource
-        String instanceTag = "component-instances/instance";
+    private void putLegacyListAttribute(
+            Definition definition, Element elem) {
 
-        String putTag = instanceTag + "/put";
-        String putAttributeTag = instanceTag + "/putAttribute";
+        Attribute attribute;
 
-        String listTag = instanceTag + "/putList";
+        if (syntax == Syntax.COMPONENT_INSTANCES) {
+            attribute = parseLegacyInstanceList(elem);
+        } else {
+            attribute = parseLegacyList(elem);
+        }
 
-        String addListElementTag = listTag + "/add";
-
-        // component instance rules
-        digester.addObjectCreate(instanceTag, DEFINITION_HANDLER_CLASS);
-        digester.addRule(instanceTag, new FillDefinitionRule());
-        digester
-                .addSetNext(instanceTag, "addDefinition", DEFINITION_HANDLER_CLASS);
-        // put / putAttribute rules
-        digester.addObjectCreate(putAttributeTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addRule(putTag, new FillAttributeRule());
-        digester.addRule(putTag, new PutAttributeRule());
-        // put / putAttribute rules
-        digester.addObjectCreate(putTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addSetProperties(putTag);
-        digester.addRule(putTag, new PutAttributeRule());
-        // list rules
-        digester.addObjectCreate(listTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addSetProperties(listTag);
-        digester.addRule(listTag, new PutAttributeRule());
-        // list elements rules
-        // We use Attribute class to avoid rewriting a new class.
-        // Name part can't be used in listElement attribute.
-        digester.addObjectCreate(addListElementTag, PUT_ATTRIBUTE_HANDLER_CLASS);
-        digester.addRule(addListElementTag, new FillAttributeRule());
-        digester.addSetNext(addListElementTag, "add", PUT_ATTRIBUTE_HANDLER_CLASS);
+        definition.putAttribute(
+                getAttributeValue(elem, "name"),
+                attribute,
+                "true".equals(getAttributeValue(elem, "cascade")));
     }
 
     /**
-     * Init digester for Tiles syntax with first element = tiles-definitions.
+     * Parses a legacy list represented by ListAttribute.
      *
-     * @param digester Digester instance to use.
+     * @param elem the XML element
+     * @return the parsed list attribute
      */
-    private void initDigesterForBeans(Digester digester) {
+    private ListAttribute parseLegacyList(Element elem) {
 
-        // item elements rules
-        // We use Attribute class to avoid rewriting a new class.
-        // Name part can't be used in listElement attribute.
-        //String ADD_WILDCARD = LIST_TAG + "/addItem";
-        // non String ADD_WILDCARD = LIST_TAG + "/addx*";
-        String menuItemDefaultClass = SimpleMenuItem.class.getName();
-        digester.addObjectCreate(ADD_WILDCARD, menuItemDefaultClass, "classtype");
-        digester.addSetProperties(ADD_WILDCARD);
-        digester.addRule(ADD_WILDCARD, new SetValueToAttributeRule());
-        digester.addSetNext(ADD_WILDCARD, "add", PUT_ATTRIBUTE_HANDLER_CLASS);
+        ListAttribute list = new ListAttribute();
 
-        // bean elements rules
-        String beanDefaultClass = SimpleMenuItem.class.getName();
-        digester.addObjectCreate(BEAN_TAG, beanDefaultClass, "classtype");
-        digester.addSetProperties(BEAN_TAG);
-        digester.addRule(BEAN_TAG, new SetValueToAttributeRule());
-        digester.addSetNext(BEAN_TAG, "add", PUT_ATTRIBUTE_HANDLER_CLASS);
+        list.setInherit(
+                Boolean.parseBoolean(getAttributeValue(elem, "inherit")));
 
-        // Set properties to surrounding element
-        digester.addSetProperty(BEAN_TAG + "/set-property", "property", "value");
+        NodeList children = elem.getChildNodes();
+
+        for (int i = 0; i < children.getLength(); i++) {
+
+            Node node = children.item(i);
+
+            if (node.getNodeType() != Node.ELEMENT_NODE) {
+                continue;
+            }
+
+            Element child = (Element) node;
+            String tagName = getElementName(child);
+
+            switch (tagName) {
+
+                case "add":
+                    list.add(parseAttribute(child));
+                    break;
+
+                case "putList":
+                    list.add(parseLegacyList(child));
+                    break;
+
+                case "item":
+                case "bean":
+                    list.add(parseBeanAttribute(child));
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        return list;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Parses a legacy component instance list represented by Attribute.
+     *
+     * @param elem the XML element
+     * @return the parsed legacy component instance list
+     */
+    private Attribute parseLegacyInstanceList(Element elem) {
+
+        Attribute list = new Attribute();
+
+        setBeanProperties(list, elem);
+
+        NodeList children = elem.getChildNodes();
+
+        for (int i = 0; i < children.getLength(); i++) {
+
+            Node node = children.item(i);
+
+            if (node.getNodeType() != Node.ELEMENT_NODE) {
+                continue;
+            }
+
+            Element child = (Element) node;
+            String tagName = getElementName(child);
+
+            switch (tagName) {
+
+                case "add":
+                    addToList(list, parseAttribute(child));
+                    break;
+
+                case "item":
+                case "bean":
+                    addToList(list, parseBeanAttribute(child));
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        return list;
+    }
+
+    /**
+     * Creates an Attribute containing a bean or menu item.
+     * <p>
+     * The default class is SimpleMenuItem. The classtype XML attribute
+     * can specify another implementation.
+     *
+     * @param elem the XML element
+     * @return the parsed bean attribute
+     */
+    private Attribute parseBeanAttribute(Element elem) {
+
+        String className = getAttributeValue(elem, "classtype");
+
+        Class<?> beanClass;
+
+        try {
+            if (className == null || className.isEmpty()) {
+                beanClass = SimpleMenuItem.class;
+            } else {
+                ClassLoader classLoader =
+                        Thread.currentThread().getContextClassLoader();
+
+                if (classLoader == null) {
+                    classLoader = getClass().getClassLoader();
+                }
+
+                beanClass = classLoader.loadClass(className);
+            }
+
+            Object bean = beanClass.getDeclaredConstructor().newInstance();
+
+            setBeanProperties(bean, elem);
+
+            // Apply explicit set-property elements.
+            NodeList children = elem.getChildNodes();
+
+            for (int i = 0; i < children.getLength(); i++) {
+
+                Node node = children.item(i);
+
+                if (node.getNodeType() != Node.ELEMENT_NODE) {
+                    continue;
+                }
+
+                Element child = (Element) node;
+
+                if ("set-property".equals(getElementName(child))) {
+                    setBeanProperty(
+                            bean,
+                            getAttributeValue(child, "property"),
+                            getAttributeValue(child, "value"));
+                }
+            }
+
+            return new Attribute(bean);
+
+        } catch (ReflectiveOperationException e) {
+            throw new DefinitionsFactoryException(
+                    "Unable to create bean for element "
+                            + getElementName(elem) + ".", e);
+        }
+    }
+
+    /**
+     * Applies XML attributes to JavaBean properties.
+     * <p>
+     * The classtype attribute is reserved for object creation.
+     *
+     * @param bean the bean
+     * @param elem the XML element
+     */
+    private void setBeanProperties(Object bean, Element elem) {
+
+        org.w3c.dom.NamedNodeMap attributes = elem.getAttributes();
+
+        for (int i = 0; i < attributes.getLength(); i++) {
+
+            Node attribute = attributes.item(i);
+            String name = attribute.getNodeName();
+
+            if ("classtype".equals(name)) {
+                continue;
+            }
+
+            setBeanProperty(bean, name, attribute.getNodeValue());
+        }
+    }
+
+    /**
+     * Sets a JavaBean property using its setter.
+     *
+     * @param bean the bean
+     * @param propertyName the property name
+     * @param value the value
+     */
+    private void setBeanProperty(
+            Object bean, String propertyName, String value) {
+
+        if (propertyName == null || value == null) {
+            return;
+        }
+
+        try {
+            for (PropertyDescriptor descriptor : Introspector.getBeanInfo(bean.getClass()).getPropertyDescriptors()) {
+
+                if (!descriptor.getName().equals(propertyName)) {
+                    continue;
+                }
+
+                Method setter = descriptor.getWriteMethod();
+
+                if (setter == null) {
+                    return;
+                }
+
+                Class<?> type = setter.getParameterTypes()[0];
+
+                setter.invoke(bean, convertValue(value, type));
+                return;
+            }
+
+            // Digester's SetPropertiesRule ignores unmatched properties.
+
+        } catch (Exception e) {
+            throw new DefinitionsFactoryException(
+                    "Unable to set property '" + propertyName
+                            + "' on " + bean.getClass().getName(), e);
+        }
+    }
+
+    /**
+     * Converts a string to a JavaBean property type.
+     *
+     * @param value the value
+     * @param type the type
+     * @return the converted value
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private Object convertValue(String value, Class<?> type) {
+
+        if (type == String.class) {
+            return value;
+        }
+
+        if (type == boolean.class || type == Boolean.class) {
+            return Boolean.valueOf(value);
+        }
+
+        if (type == int.class || type == Integer.class) {
+            return Integer.valueOf(value);
+        }
+
+        if (type == long.class || type == Long.class) {
+            return Long.valueOf(value);
+        }
+
+        if (type == double.class || type == Double.class) {
+            return Double.valueOf(value);
+        }
+
+        if (type == float.class || type == Float.class) {
+            return Float.valueOf(value);
+        }
+
+        if (type == short.class || type == Short.class) {
+            return Short.valueOf(value);
+        }
+
+        if (type == byte.class || type == Byte.class) {
+            return Byte.valueOf(value);
+        }
+
+        if (type == char.class || type == Character.class) {
+            if (value.length() != 1) {
+                throw new IllegalArgumentException(
+                        "Expected a single character: " + value);
+            }
+            return value.charAt(0);
+        }
+
+        if (type.isEnum()) {
+            return Enum.valueOf((Class<? extends Enum>) type, value);
+        }
+
+        if (type == Class.class) {
+            try {
+                return Class.forName(value);
+            } catch (ClassNotFoundException e) {
+                throw new IllegalArgumentException(e);
+            }
+        }
+
+        // Allow standard Java types exposing a String constructor.
+        try {
+            return type.getConstructor(String.class).newInstance(value);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalArgumentException(
+                    "Unsupported property type: " + type.getName(), e);
+        }
+    }
+
+    /**
+     * Adds an attribute to a legacy list.
+     *
+     * @param parent the parent
+     * @param child the child
+     */
+    private void addToList(Attribute parent, Attribute child) {
+
+        try {
+            Method add = parent.getClass().getMethod("add", Attribute.class);
+            add.invoke(parent, child);
+
+        } catch (ReflectiveOperationException e) {
+            throw new DefinitionsFactoryException(
+                    "Unable to add an element to legacy attribute list.", e);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * Registers the local DTDs for all supported Tiles versions.
+     */
     @Override
     protected String[] getRegistrations() {
+
         if (registrations == null) {
             registrations = new String[] {
-                "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN",
+                    "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN",
                     "/io/github/laurentschoelens/tiles/resources/tiles-config_3_0.dtd",
-                "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN",
+
+                    "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN",
                     "/io/github/laurentschoelens/tiles/compat/resources/tiles-config_2_0.dtd",
-                "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN",
+
+                    "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN",
                     "/io/github/laurentschoelens/tiles/compat/resources/tiles-config_2_1.dtd",
-                "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN",
+
+                    "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN",
                     "/io/github/laurentschoelens/tiles/compat/resources/tiles-config_1_1.dtd",
-                "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN",
+
+                    "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN",
                     "/io/github/laurentschoelens/tiles/compat/resources/tiles-config_1_3.dtd",
-                "-//Apache Software Foundation//DTD Tiles Configuration 1.4//EN",
-                    "/io/github/laurentschoelens/tiles/compat/resources/tiles-config_1_4.dtd"};
+
+                    "-//Apache Software Foundation//DTD Tiles Configuration 1.4//EN",
+                    "/io/github/laurentschoelens/tiles/compat/resources/tiles-config_1_4.dtd"
+            };
         }
+
         return registrations;
-    }
-
-    /**
-     * Digester rule to manage assignment of an object as an attribute value.
-     *
-     * @since 3.0.0
-     */
-    public static class SetValueToAttributeRule extends Rule {
-
-        /** {@inheritDoc} */
-        @Override
-        public void begin(String namespace, String name, Attributes attributes) {
-            Object obj = getDigester().pop();
-            Attribute attribute = new Attribute(obj);
-            getDigester().push(attribute);
-        }
     }
 }
