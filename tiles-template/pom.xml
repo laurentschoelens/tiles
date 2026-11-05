@@ -30,7 +30,7 @@
   <parent>
     <artifactId>tiles-parent</artifactId>
     <groupId>io.github.laurentschoelens.tiles</groupId>
-    <version>4.1-SNAPSHOT</version>
+    <version>4.1</version>
   </parent>
   <properties>
       <!-- decrease this whenever possible -->
