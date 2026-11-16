@@ -31,4 +31,4 @@ jobs:
           cache: maven
       - name: Verify
         run: |
-          mvn -B -V -U -C clean verify -Dgpg.skip=true -Doss.disallow.snapshots=false
+          mvn -B -V -U -C clean verify -Dgpg.skip=true -Doss.disallow.snapshots=false -Papache-release
