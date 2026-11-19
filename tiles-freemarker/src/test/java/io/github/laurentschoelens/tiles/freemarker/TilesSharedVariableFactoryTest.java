@@ -14,11 +14,32 @@
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
+ * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
  */
-/**
- * Classes for supporting FreeMarker in Tiles.
- */
 package io.github.laurentschoelens.tiles.freemarker;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import freemarker.ext.beans.BeanModel;
+
+/**
+ * Tests {@link TilesSharedVariableFactory}.
+ *
+ * @version $Rev$ $Date$
+ */
+public class TilesSharedVariableFactoryTest {
+
+    /**
+     * Test method for {@link io.github.laurentschoelens.tiles.freemarker.TilesSharedVariableFactory#create()}.
+     */
+    @Test
+    public void testCreate() {
+        TilesSharedVariableFactory factory = new TilesSharedVariableFactory();
+        assertTrue(factory.create() instanceof BeanModel);
+    }
+
+}

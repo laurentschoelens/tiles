@@ -14,7 +14,7 @@
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
+ * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
  */
@@ -42,9 +42,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Provides a custom "options" syntax for attributes.
  * The first option that can be rendered is.
- * Comes from <a href="http://tech.finn.no/the-ultimate-view/">The Ultimate View</a> article.<p/>
+ * Comes from <a href="http://tech.finn.no/the-ultimate-view/">The Ultimate View</a> article.<p>
  *
- * Actual rendering is delegated to the TypeDetectingRenderer that's supplied in the constructor.<p/>
+ * Actual rendering is delegated to the TypeDetectingRenderer that's supplied in the constructor.<p>
  *
  * For example:
  * "/WEB-INF/tiles/fragments/${options[myoptions]}/content.jsp"
@@ -62,13 +62,13 @@ import org.slf4j.LoggerFactory;
  * first in "/WEB-INF/tiles/fragments/car/" then <br/>
  * second in "/WEB-INF/tiles/fragments/vechile/" and <br/>
  * last in "/WEB-INF/tiles/fragments/advert".
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Currently only supports one occurrance of such an "option" pattern in the attribute's value.
- * <p/>
+ * <p>
  * Limitation: "looking" for templates is implemented using applicationContext.getResource(..)
  * therefore the option values in the options list need to be visible as applicationResources.
- * <p/>
+ * <p>
  * The attribute found and rendered is cached so to improve performance on subsequent lookups.
  * The default cache time-to-live is {@value #DEFAULT_CACHE_LIFE}, specified by {@link #DEFAULT_CACHE_LIFE}.
  * It can be customised by setting the system property {@value #CACHE_LIFE_PROPERTY}, see {@link #CACHE_LIFE_PROPERTY}.
