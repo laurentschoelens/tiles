@@ -82,11 +82,11 @@
       <artifactId>tiles-jsp</artifactId>
       <version>${project.version}</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>io.github.laurentschoelens.tiles</groupId>-->
-<!--      <artifactId>tiles-freemarker</artifactId>-->
-<!--      <version>${project.version}</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>io.github.laurentschoelens.tiles</groupId>
+      <artifactId>tiles-freemarker</artifactId>
+      <version>${project.version}</version>
+    </dependency>
 <!--    <dependency>-->
 <!--      <groupId>io.github.laurentschoelens.tiles</groupId>-->
 <!--      <artifactId>tiles-velocity</artifactId>-->
