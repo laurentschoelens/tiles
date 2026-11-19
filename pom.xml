@@ -54,7 +54,7 @@
         <module>tiles-template</module>
         <module>tiles-servlet</module>
         <module>tiles-jsp</module>
-        <!--<module>tiles-freemarker</module>-->
+        <module>tiles-freemarker</module>
         <!--<module>tiles-velocity</module>-->
         <module>tiles-el</module>
         <module>tiles-mvel</module>
@@ -325,8 +325,8 @@
         <tiles.osgi.private />
         <tiles.manifestfile>target/osgi/MANIFEST.MF</tiles.manifestfile>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tiles.request.version>2.0</tiles.request.version>
-        <tiles.autotag.version>2.0</tiles.autotag.version>
+        <tiles.request.version>2.1</tiles.request.version>
+        <tiles.autotag.version>2.2</tiles.autotag.version>
     </properties>
 
     <dependencies />
