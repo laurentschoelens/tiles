@@ -326,6 +326,9 @@
         <tiles.osgi.private />
         <tiles.manifestfile>target/osgi/MANIFEST.MF</tiles.manifestfile>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <central.deployment.basename>tiles</central.deployment.basename>
+        <spring.version>6.2.19</spring.version>
         <tiles.request.version>2.1</tiles.request.version>
         <tiles.autotag.version>2.2</tiles.autotag.version>
     </properties>
