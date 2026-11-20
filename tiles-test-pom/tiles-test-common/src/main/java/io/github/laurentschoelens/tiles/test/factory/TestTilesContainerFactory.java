@@ -62,8 +62,8 @@ public class TestTilesContainerFactory extends CompleteAutoloadTilesContainerFac
                 .getResources("/WEB-INF/**/tiles-defs*.xml"));
         urls.add(applicationContext.getResource(
                 "classpath:/io/github/laurentschoelens/tiles/classpath-defs.xml"));
-//        urls.add(applicationContext.getResource(
-//                "classpath:/io/github/laurentschoelens/tiles/freemarker-classpath-defs.xml"));
+        urls.add(applicationContext.getResource(
+                "classpath:/io/github/laurentschoelens/tiles/freemarker-classpath-defs.xml"));
 //        urls.add(applicationContext.getResource(
 //            "classpath:/io/github/laurentschoelens/tiles/velocity-classpath-defs.xml"));
         return urls;
