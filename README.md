@@ -3,14 +3,16 @@
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.laurentschoelens.tiles/tiles-parent)](https://mvnrepository.com/artifact/io.github.laurentschoelens.tiles/tiles-parent)
 [![GitHub Actions Status](https://github.com/laurentschoelens/tiles/workflows/Tiles/badge.svg)](https://github.com/laurentschoelens/tiles/actions)
 [![CodeQL](https://github.com/laurentschoelens/tiles/workflows/CodeQL/badge.svg)](https://github.com/laurentschoelens/tiles/actions/workflows/codeql-analysis.yml?query=workflow%3ACodeQL)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## About & Purpose
 
 This project is an independent, community-maintained fork of **Apache Tiles**, which was retired to the [Apache Attic](https://apache.org) by The Apache Software Foundation (ASF).
 
-This project corresponds to `org.apache.tiles:tiles-parent` in Apache Tiles.
-
 Its primary goal is to **maintain and modernize the codebase to ensure full compatibility with Jakarta EE** (migrating away from legacy `javax.*` namespaces to `jakarta.*`).
+
+* **Equivalent original artifact:** `org.apache.tiles:tiles-parent`
+* **New artifact coordinates:** `io.github.laurentschoelens.tiles:tiles-parent`
 
 ## Origin & Acknowledgements
 
