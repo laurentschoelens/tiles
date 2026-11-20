@@ -29,7 +29,6 @@
         <groupId>io.github.laurentschoelens.tiles</groupId>
         <artifactId>tiles-master</artifactId>
         <version>10.2</version>
-        <relativePath />
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
