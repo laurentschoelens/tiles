@@ -18,6 +18,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  *#
 #tiles_insertTemplate({"template":"/velocity/layout.vm"})
   #tiles_putAttribute({"name":"title", "value":"This is the title.", "cascade":true})#end

@@ -19,6 +19,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  */
 -->
 <@tiles.definition name="test.nesting.definitions.tags" template="/freemarker/layout_list.ftl">

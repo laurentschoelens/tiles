@@ -20,6 +20,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  */
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

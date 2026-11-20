@@ -17,6 +17,8 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
+ *
+ * Modified by Laurent Schoelens, 2026
  */
 /**
  * Tiles template classes, that enable to write support code for template languages (JSP, FreeMarker, Velocity).

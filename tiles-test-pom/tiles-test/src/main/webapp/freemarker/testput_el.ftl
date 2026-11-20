@@ -19,6 +19,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  */
 -->
 <#assign bodyContent="Body Content defined by and el" />

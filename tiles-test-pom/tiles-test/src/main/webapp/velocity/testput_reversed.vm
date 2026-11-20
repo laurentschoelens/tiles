@@ -18,6 +18,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  *#
 #tiles_insertTemplate({"template":"/velocity/layout_alt_title.vm"})
   #tiles_putAttribute({"name":"title", "value":"This is the title.", "type":"reversed"})#end

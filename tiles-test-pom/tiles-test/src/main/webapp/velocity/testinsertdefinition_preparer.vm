@@ -18,5 +18,7 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  *#
 #tiles_insertDefinition({"name":"velocity.preparer.definition", "preparer":"io.github.laurentschoelens.tiles.test.preparer.TestViewPreparer"})#end

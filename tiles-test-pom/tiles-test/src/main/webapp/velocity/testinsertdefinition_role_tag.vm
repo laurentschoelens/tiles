@@ -18,6 +18,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  *#
 #tiles_insertDefinition({"name":"velocity.test.definition.appears", "role":"goodrole"})#end
 #tiles_insertDefinition({"name":"velocity.test.definition.does_not_appear", "role":"badrole"})#end

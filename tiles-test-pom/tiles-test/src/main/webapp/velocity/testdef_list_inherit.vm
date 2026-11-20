@@ -18,6 +18,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  *#
 #tiles_definition({"name":"templateDefinition", "extends":"test.putAttributes"})
   #tiles_putAttribute({"name":"stringTest", "value":"This is a string", "type":"string"})#end

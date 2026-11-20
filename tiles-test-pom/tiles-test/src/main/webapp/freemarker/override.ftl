@@ -19,6 +19,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  */
 -->
 <div align="center"><b><i>This is an overridden content</i></b></div>

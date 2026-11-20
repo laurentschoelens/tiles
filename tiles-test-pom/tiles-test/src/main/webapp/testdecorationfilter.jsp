@@ -20,6 +20,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  */
 --%>
 <i>This Content should be wrapped with the standard layout.</i>

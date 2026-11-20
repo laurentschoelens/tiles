@@ -19,6 +19,8 @@
  * specific language governing permissions and limitations
  * under the License.
  *
+ * Modified by Laurent Schoelens, 2026
+ *
  */
 -->
 <table  border="2"  width="300"  bordercolor="Gray">
