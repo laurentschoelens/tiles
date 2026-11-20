@@ -52,7 +52,7 @@ import io.github.laurentschoelens.tiles.locale.LocaleResolver;
 import io.github.laurentschoelens.tiles.renderer.DefinitionRenderer;
 import io.github.laurentschoelens.tiles.request.ApplicationContext;
 import io.github.laurentschoelens.tiles.request.ApplicationResource;
-//import io.github.laurentschoelens.tiles.request.freemarker.render.FreemarkerRenderer;
+import io.github.laurentschoelens.tiles.request.freemarker.render.FreemarkerRenderer;
 import io.github.laurentschoelens.tiles.request.mustache.MustacheRenderer;
 import io.github.laurentschoelens.tiles.request.render.BasicRendererFactory;
 import io.github.laurentschoelens.tiles.request.render.ChainedDelegateRenderer;
@@ -121,7 +121,7 @@ public class CompleteAutoloadTilesContainerFactoryTest {
         rendererFactory.registerRenderer(eq("string"), isA(StringRenderer.class));
         rendererFactory.registerRenderer(eq("template"), isA(DispatchRenderer.class));
         rendererFactory.registerRenderer(eq("definition"), isA(DefinitionRenderer.class));
-        //rendererFactory.registerRenderer(eq("freemarker"), isA(FreemarkerRenderer.class));
+        rendererFactory.registerRenderer(eq("freemarker"), isA(FreemarkerRenderer.class));
         //rendererFactory.registerRenderer(eq("velocity"), isA(VelocityRenderer.class));
         rendererFactory.registerRenderer(eq("mustache"), isA(MustacheRenderer.class));
 
@@ -136,7 +136,7 @@ public class CompleteAutoloadTilesContainerFactoryTest {
 //        expect(servletContext.getResourceAsStream("/WEB-INF/tools.xml")).andReturn(
 //                getClass().getResourceAsStream("/tools.xml"));
 //        expect(servletContext.getResourceAsStream(VelocityView.DEPRECATED_USER_TOOLS_PATH)).andReturn(null);
-        servletContext.log((String) anyObject());
+        servletContext.log(anyObject());
         expectLastCall().anyTimes();
 //        expect(servletContext.getRealPath("/")).andReturn(null);
 
@@ -167,7 +167,7 @@ public class CompleteAutoloadTilesContainerFactoryTest {
         expect(rendererFactory.getRenderer("template")).andReturn(templateRenderer);
         expect(rendererFactory.getRenderer("definition")).andReturn(definitionRenderer);
 //        expect(rendererFactory.getRenderer("velocity")).andReturn(velocityRenderer);
-//        expect(rendererFactory.getRenderer("freemarker")).andReturn(freemarkerRenderer);
+        expect(rendererFactory.getRenderer("freemarker")).andReturn(freemarkerRenderer);
         expect(rendererFactory.getRenderer("mustache")).andReturn(mustacheRenderer);
 
         replay(container, attributeEvaluatorFactory, rendererFactory, applicationContext);

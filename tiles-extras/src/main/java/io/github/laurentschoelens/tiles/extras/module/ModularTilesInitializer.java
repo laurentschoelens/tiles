@@ -81,7 +81,7 @@ public class ModularTilesInitializer implements TilesInitializer {
      * @param applicationContext The application context.
      */
     private void loadInitializers(ApplicationContext applicationContext) {
-        initializers = new ArrayList<TilesInitializer>();
+        initializers = new ArrayList<>();
         try {
             Collection<ApplicationResource> resources = applicationContext
                     .getResources("classpath*:META-INF/MANIFEST.MF");

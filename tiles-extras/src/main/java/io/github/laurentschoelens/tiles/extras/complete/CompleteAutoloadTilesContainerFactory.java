@@ -59,7 +59,7 @@ import io.github.laurentschoelens.tiles.evaluator.AttributeEvaluatorFactory;
 import io.github.laurentschoelens.tiles.evaluator.BasicAttributeEvaluatorFactory;
 import io.github.laurentschoelens.tiles.factory.BasicTilesContainerFactory;
 import io.github.laurentschoelens.tiles.factory.TilesContainerFactoryException;
-//import io.github.laurentschoelens.tiles.freemarker.TilesSharedVariableFactory;
+import io.github.laurentschoelens.tiles.freemarker.TilesSharedVariableFactory;
 import io.github.laurentschoelens.tiles.impl.mgmt.CachingTilesContainer;
 import io.github.laurentschoelens.tiles.locale.LocaleResolver;
 import io.github.laurentschoelens.tiles.mvel.MVELAttributeEvaluator;
@@ -77,9 +77,9 @@ import io.github.laurentschoelens.tiles.ognl.TilesContextPropertyAccessorDelegat
 import io.github.laurentschoelens.tiles.request.ApplicationContext;
 import io.github.laurentschoelens.tiles.request.ApplicationResource;
 import io.github.laurentschoelens.tiles.request.Request;
-//import io.github.laurentschoelens.tiles.request.freemarker.render.FreemarkerRenderer;
-//import io.github.laurentschoelens.tiles.request.freemarker.render.FreemarkerRendererBuilder;
-//import io.github.laurentschoelens.tiles.request.freemarker.servlet.SharedVariableLoaderFreemarkerServlet;
+import io.github.laurentschoelens.tiles.request.freemarker.render.FreemarkerRenderer;
+import io.github.laurentschoelens.tiles.request.freemarker.render.FreemarkerRendererBuilder;
+import io.github.laurentschoelens.tiles.request.freemarker.servlet.SharedVariableLoaderFreemarkerServlet;
 import io.github.laurentschoelens.tiles.request.mustache.MustacheRenderer;
 import io.github.laurentschoelens.tiles.request.render.BasicRendererFactory;
 import io.github.laurentschoelens.tiles.request.render.ChainedDelegateRenderer;
@@ -137,19 +137,18 @@ public class CompleteAutoloadTilesContainerFactory extends BasicTilesContainerFa
             final AttributeEvaluatorFactory attributeEvaluatorFactory) {
         super.registerAttributeRenderers(rendererFactory, applicationContext, container, attributeEvaluatorFactory);
 
-        // FIXME : freemarker unavailable
-//        FreemarkerRenderer freemarkerRenderer = FreemarkerRendererBuilder
-//                .createInstance()
-//                .setApplicationContext(applicationContext)
-//                .setParameter("TemplatePath", "/")
-//                .setParameter("NoCache", "true")
-//                .setParameter("ContentType", "text/html")
-//                .setParameter("template_update_delay", "0")
-//                .setParameter("default_encoding", "ISO-8859-1")
-//                .setParameter("number_format", "0.##########")
-//                .setParameter(SharedVariableLoaderFreemarkerServlet.CUSTOM_SHARED_VARIABLE_FACTORIES_INIT_PARAM,
-//                        "tiles," + TilesSharedVariableFactory.class.getName()).build();
-//        rendererFactory.registerRenderer(FREEMARKER_RENDERER_NAME, freemarkerRenderer);
+        FreemarkerRenderer freemarkerRenderer = FreemarkerRendererBuilder
+                .createInstance()
+                .setApplicationContext(applicationContext)
+                .setParameter("TemplatePath", "/")
+                .setParameter("NoCache", "true")
+                .setParameter("ContentType", "text/html")
+                .setParameter("template_update_delay", "0")
+                .setParameter("default_encoding", "ISO-8859-1")
+                .setParameter("number_format", "0.##########")
+                .setParameter(SharedVariableLoaderFreemarkerServlet.CUSTOM_SHARED_VARIABLE_FACTORIES_INIT_PARAM,
+                        "tiles," + TilesSharedVariableFactory.class.getName()).build();
+        rendererFactory.registerRenderer(FREEMARKER_RENDERER_NAME, freemarkerRenderer);
 
         // FIXME : velocity unavailable
 //        VelocityRenderer velocityRenderer = VelocityRendererBuilder.createInstance()
@@ -170,7 +169,7 @@ public class CompleteAutoloadTilesContainerFactory extends BasicTilesContainerFa
         ChainedDelegateRenderer retValue = new ChainedDelegateRenderer();
         retValue.addAttributeRenderer(rendererFactory.getRenderer(DEFINITION_RENDERER_NAME));
 //        retValue.addAttributeRenderer(rendererFactory.getRenderer(VELOCITY_RENDERER_NAME));
-//        retValue.addAttributeRenderer(rendererFactory.getRenderer(FREEMARKER_RENDERER_NAME));
+        retValue.addAttributeRenderer(rendererFactory.getRenderer(FREEMARKER_RENDERER_NAME));
         retValue.addAttributeRenderer(rendererFactory.getRenderer(MUSTACHE_RENDERER_NAME));
         retValue.addAttributeRenderer(rendererFactory.getRenderer(TEMPLATE_RENDERER_NAME));
         retValue.addAttributeRenderer(rendererFactory.getRenderer(STRING_RENDERER_NAME));
