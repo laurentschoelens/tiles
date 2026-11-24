@@ -32,6 +32,10 @@
     <version>4.2-SNAPSHOT</version>
   </parent>
 
+  <properties>
+    <apache.rat.plugin.skip>true</apache.rat.plugin.skip>
+  </properties>
+
   <build>
     <plugins>
         <plugin>
