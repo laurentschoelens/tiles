@@ -1,7 +1,7 @@
 # Tiles for JakartaEE
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.laurentschoelens.tiles/tiles-parent)](https://mvnrepository.com/artifact/io.github.laurentschoelens.tiles/tiles-parent)
-[![GitHub Actions Status](https://github.com/laurentschoelens/tiles/workflows/Tiles/badge.svg)](https://github.com/laurentschoelens/tiles/actions)
+[![GitHub Actions Status](https://github.com/laurentschoelens/tiles/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/laurentschoelens/tiles/actions/workflows/maven.yml)
 [![CodeQL](https://github.com/laurentschoelens/tiles/workflows/CodeQL/badge.svg)](https://github.com/laurentschoelens/tiles/actions/workflows/codeql-analysis.yml?query=workflow%3ACodeQL)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
