@@ -32,3 +32,24 @@ jobs:
       - name: Verify
         run: |
           mvn -B -V -U -C clean verify -Dgpg.skip=true -Doss.disallow.snapshots=false -Papache-release
+
+  build_spring:
+    name: Test on Spring ${{ matrix.spring_version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        spring_version: [ 6.0.23, 6.1.21, 6.2.19, 7.0.11, 7.1.0 ]
+
+    steps:
+      - name: Checkout for build
+        uses: actions/checkout@v7
+      - name: Set up JDK
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'zulu'
+          java-version: 17
+          cache: maven
+      - name: Verify
+        run: |
+          mvn -B -V -U -C clean verify -Dspring.version=${{ matrix.spring_version }} -Dgpg.skip=true -Doss.disallow.snapshots=false -Papache-release
