@@ -346,6 +346,9 @@
                     <plugin>
                         <groupId>org.apache.rat</groupId>
                         <artifactId>apache-rat-plugin</artifactId>
+                        <configuration>
+                            <skip>${apache.rat.plugin.skip}</skip>
+                        </configuration>
                         <executions>
                             <execution>
                                 <phase>verify</phase>
