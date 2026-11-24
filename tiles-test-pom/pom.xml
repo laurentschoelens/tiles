@@ -28,7 +28,7 @@
   <parent>
     <artifactId>tiles-parent</artifactId>
     <groupId>io.github.laurentschoelens.tiles</groupId>
-    <version>4.2</version>
+    <version>4.3-SNAPSHOT</version>
   </parent>
   <artifactId>tiles-test-pom</artifactId>
   <packaging>pom</packaging>
