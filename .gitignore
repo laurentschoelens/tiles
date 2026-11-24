@@ -6,3 +6,4 @@
 target/
 *.iml
 release.sh
+assembly/assembly/out
