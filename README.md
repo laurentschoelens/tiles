@@ -14,7 +14,7 @@ Its primary goal is to **maintain and modernize the codebase to ensure full comp
 * **Equivalent original artifact:** `org.apache.tiles:tiles-parent`
 * **New artifact coordinates:** `io.github.laurentschoelens.tiles:tiles-parent`
 
-This project also provides a `tiles-spring-extension` which takes back previous support of Spring 5.x of Tiles but adapted for this version of Tiles and is tested against the following Spring version (at build) : 6.0.23, 6.1.21, 6.2.19, 7.0.10.
+This project also provides a `tiles-spring-extension` which takes back previous support of Spring 5.x of Tiles but adapted for this version of Tiles and is tested against the following Spring version (at build) : 6.0.23, 6.1.21, 6.2.19, 7.0.11, 7.1.0.
 
 ## Origin & Acknowledgements
 
